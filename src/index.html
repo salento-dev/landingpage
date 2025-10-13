@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="it" class="overflow-hidden">
+<html lang="it">
 
 <head>
   <meta charset="UTF-8" />
@@ -43,6 +43,9 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://salento.dev/" />
   
+  <!-- Robots and Sitemap -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  
   <!-- Favicon and Icons -->
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.svg" />
@@ -53,7 +56,7 @@
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -91,38 +94,7 @@
     </p>
     <div class="card card-large p-0 md:px-16 md:py-12 lg:px-24 lg:py-20 xl:px-32 xl:py-28 card-features w-full max-w-5xl mt-[10vh]">
       <div class="inner-card">
-        <div class="editor">
-          <!-- header -->
-          <div class="editor-header">
-            <div class="editor-controls">
-              <span class="dot red" aria-hidden="true"></span>
-              <span class="dot yellow" aria-hidden="true"></span>
-              <span class="dot green" aria-hidden="true"></span>
-            </div>
-            <span class="filename">Edit new file</span>
-          </div>
-
-          <!-- body -->
-          <div class="editor-content">
-            <!-- line numbers gutter -->
-            <div class="editor-content-lines">
-              <div>1</div>
-              <div>2</div>
-              <div>3</div>
-              <div>4</div>
-              <div>5</div>
-              <div>6</div>
-              <div>7</div>
-              <div>8</div>
-            </div>
-
-            <!-- code area -->
-            <div class="editor-content-text">
-              <span class="typed-code" style="white-space: pre;" aria-label="Animazione di codice che si scrive">
-              </span>
-            </div>
-          </div>
-        </div>
+        <random-editor></random-editor>
       </div>
     </div>
   </section>
@@ -140,106 +112,43 @@
   </section>
 
   <section class="container snap-start">
+    <h2 class="text-6xl font-medium mb-16">I nostri principi</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
-      <div class="card">
-        <svg aria-hidden="true" focusable="false" class="text-primary-300" viewBox="0 0 24 24" width="44" height="44"
-          fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom">
-          <path
-            d="M12.876.64V.639l8.25 4.763c.541.313.875.89.875 1.515v9.525a1.75 1.75 0 0 1-.875 1.516l-8.25 4.762a1.748 1.748 0 0 1-1.75 0l-8.25-4.763a1.75 1.75 0 0 1-.875-1.515V6.917c0-.625.334-1.202.875-1.515L11.126.64a1.748 1.748 0 0 1 1.75 0Zm-1 1.298L4.251 6.34l7.75 4.474 7.75-4.474-7.625-4.402a.248.248 0 0 0-.25 0Zm.875 19.123 7.625-4.402a.25.25 0 0 0 .125-.216V7.639l-7.75 4.474ZM3.501 7.64v8.803c0 .09.048.172.125.216l7.625 4.402v-8.947Z">
-          </path>
-        </svg>
-        <h3 class="card-title">
-          Condivisione di conoscenze
-        </h3>
-        <p class="card-description">
-          Partecipa a discussioni, workshop e presentazioni su argomenti legati allo sviluppo software, condividendo le
-          tue esperienze e imparando dagli altri membri della community.
-        </p>
-      </div>
+      <feature-card 
+        title="Condivisione di conoscenze"
+        description="Partecipa a discussioni, workshop e presentazioni su argomenti legati allo sviluppo software, condividendo le tue esperienze e imparando dagli altri membri della community.">
+        <octo-logo color="var(--color-primary-300)" width="44" height="44" slot="icon"></octo-logo>
+      </feature-card>
 
-      <div class="card">
-        <svg aria-hidden="true" focusable="false" class="text-primary-300" viewBox="0 0 24 24" width="44" height="44"
-          fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom">
-          <path
-            d="M12.876.64V.639l8.25 4.763c.541.313.875.89.875 1.515v9.525a1.75 1.75 0 0 1-.875 1.516l-8.25 4.762a1.748 1.748 0 0 1-1.75 0l-8.25-4.763a1.75 1.75 0 0 1-.875-1.515V6.917c0-.625.334-1.202.875-1.515L11.126.64a1.748 1.748 0 0 1 1.75 0Zm-1 1.298L4.251 6.34l7.75 4.474 7.75-4.474-7.625-4.402a.248.248 0 0 0-.25 0Zm.875 19.123 7.625-4.402a.25.25 0 0 0 .125-.216V7.639l-7.75 4.474ZM3.501 7.64v8.803c0 .09.048.172.125.216l7.625 4.402v-8.947Z">
-          </path>
-        </svg>
+      <feature-card 
+        title="Networking"
+        description="Connettiti con altri sviluppatori, professionisti del settore e aziende locali per creare opportunità di collaborazione, lavoro e crescita professionale.">
+        <octo-logo color="var(--color-primary-300)" width="44" height="44" slot="icon"></octo-logo>
+      </feature-card>
 
-        <h3 class="card-title">
-          Networking
-        </h3>
-        <p class="card-description">
-          Connettiti con altri sviluppatori, professionisti del settore e aziende locali per creare opportunità di
-          collaborazione, lavoro e crescita professionale.
-        </p>
-      </div>
+      <feature-card 
+        title="Risorse utili"
+        description="Accedi a una vasta gamma di risorse, tra cui tutorial, guide, strumenti e materiali didattici, per supportare il tuo percorso di apprendimento e sviluppo professionale.">
+        <octo-logo color="var(--color-primary-300)" width="44" height="44" slot="icon"></octo-logo>
+      </feature-card>
 
-      <div class="card">
-        <svg aria-hidden="true" focusable="false" class="text-primary-300" viewBox="0 0 24 24" width="44" height="44"
-          fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom">
-          <path
-            d="M12.876.64V.639l8.25 4.763c.541.313.875.89.875 1.515v9.525a1.75 1.75 0 0 1-.875 1.516l-8.25 4.762a1.748 1.748 0 0 1-1.75 0l-8.25-4.763a1.75 1.75 0 0 1-.875-1.515V6.917c0-.625.334-1.202.875-1.515L11.126.64a1.748 1.748 0 0 1 1.75 0Zm-1 1.298L4.251 6.34l7.75 4.474 7.75-4.474-7.625-4.402a.248.248 0 0 0-.25 0Zm.875 19.123 7.625-4.402a.25.25 0 0 0 .125-.216V7.639l-7.75 4.474ZM3.501 7.64v8.803c0 .09.048.172.125.216l7.625 4.402v-8.947Z">
-          </path>
-        </svg>
+      <feature-card 
+        title="Innovazione Tecnologica"
+        description="Esplora le ultime tendenze tecnologiche e partecipa a progetti innovativi. Condividi le tue competenze e scopri nuove opportunità di crescita nel settore tech.">
+        <octo-logo color="var(--color-primary-300)" width="44" height="44" slot="icon"></octo-logo>
+      </feature-card>
 
-        <h3 class="card-title">
-          Risorse utili
-        </h3>
-        <p class="card-description">
-          Accedi a una vasta gamma di risorse, tra cui tutorial, guide, strumenti e materiali didattici, per supportare
-          il tuo percorso di apprendimento e sviluppo professionale.
-        </p>
-      </div>
+      <feature-card 
+        title="Formazione Continua"
+        description="Accedi a corsi, workshop e sessioni di mentoring personalizzate. Migliora le tue competenze tecniche e soft skills attraverso un percorso di apprendimento strutturato.">
+        <octo-logo color="var(--color-primary-300)" width="44" height="44" slot="icon"></octo-logo>
+      </feature-card>
 
-      <div class="card">
-        <svg aria-hidden="true" focusable="false" class="text-primary-300" viewBox="0 0 24 24" width="44" height="44"
-          fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom">
-          <path
-            d="M12.876.64V.639l8.25 4.763c.541.313.875.89.875 1.515v9.525a1.75 1.75 0 0 1-.875 1.516l-8.25 4.762a1.748 1.748 0 0 1-1.75 0l-8.25-4.763a1.75 1.75 0 0 1-.875-1.515V6.917c0-.625.334-1.202.875-1.515L11.126.64a1.748 1.748 0 0 1 1.75 0Zm-1 1.298L4.251 6.34l7.75 4.474 7.75-4.474-7.625-4.402a.248.248 0 0 0-.25 0Zm.875 19.123 7.625-4.402a.25.25 0 0 0 .125-.216V7.639l-7.75 4.474ZM3.501 7.64v8.803c0 .09.048.172.125.216l7.625 4.402v-8.947Z">
-          </path>
-        </svg>
-        <h3 class="card-title">
-          Condivisione di conoscenze
-        </h3>
-        <p class="card-description">
-          Partecipa a discussioni, workshop e presentazioni su argomenti legati allo sviluppo software, condividendo le
-          tue esperienze e imparando dagli altri membri della community.
-        </p>
-      </div>
-
-      <div class="card">
-        <svg aria-hidden="true" focusable="false" class="text-primary-300" viewBox="0 0 24 24" width="44" height="44"
-          fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom">
-          <path
-            d="M12.876.64V.639l8.25 4.763c.541.313.875.89.875 1.515v9.525a1.75 1.75 0 0 1-.875 1.516l-8.25 4.762a1.748 1.748 0 0 1-1.75 0l-8.25-4.763a1.75 1.75 0 0 1-.875-1.515V6.917c0-.625.334-1.202.875-1.515L11.126.64a1.748 1.748 0 0 1 1.75 0Zm-1 1.298L4.251 6.34l7.75 4.474 7.75-4.474-7.625-4.402a.248.248 0 0 0-.25 0Zm.875 19.123 7.625-4.402a.25.25 0 0 0 .125-.216V7.639l-7.75 4.474ZM3.501 7.64v8.803c0 .09.048.172.125.216l7.625 4.402v-8.947Z">
-          </path>
-        </svg>
-
-        <h3 class="card-title">
-          Networking
-        </h3>
-        <p class="card-description">
-          Connettiti con altri sviluppatori, professionisti del settore e aziende locali per creare opportunità di
-          collaborazione, lavoro e crescita professionale.
-        </p>
-      </div>
-
-      <div class="card">
-        <svg aria-hidden="true" focusable="false" class="text-primary-300" viewBox="0 0 24 24" width="44" height="44"
-          fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom">
-          <path
-            d="M12.876.64V.639l8.25 4.763c.541.313.875.89.875 1.515v9.525a1.75 1.75 0 0 1-.875 1.516l-8.25 4.762a1.748 1.748 0 0 1-1.75 0l-8.25-4.763a1.75 1.75 0 0 1-.875-1.515V6.917c0-.625.334-1.202.875-1.515L11.126.64a1.748 1.748 0 0 1 1.75 0Zm-1 1.298L4.251 6.34l7.75 4.474 7.75-4.474-7.625-4.402a.248.248 0 0 0-.25 0Zm.875 19.123 7.625-4.402a.25.25 0 0 0 .125-.216V7.639l-7.75 4.474ZM3.501 7.64v8.803c0 .09.048.172.125.216l7.625 4.402v-8.947Z">
-          </path>
-        </svg>
-
-        <h3 class="card-title">
-          Risorse utili
-        </h3>
-        <p class="card-description">
-          Accedi a una vasta gamma di risorse, tra cui tutorial, guide, strumenti e materiali didattici, per supportare
-          il tuo percorso di apprendimento e sviluppo professionale.
-        </p>
-      </div>
+      <feature-card 
+        title="Sviluppo Territoriale"
+        description="Contribuisci alla crescita digitale del territorio salentino. Partecipa a progetti locali e aiuta a creare un ecosistema tech innovativo nella nostra regione.">
+        <octo-logo color="var(--color-primary-300)" width="44" height="44" slot="icon"></octo-logo>
+      </feature-card>
     </div>
   </section>
 
