@@ -1,13 +1,5 @@
 @import "tailwindcss";
 
-
-/* Mona Sans (local files expected in /public/fonts)
-   Place your Mona Sans .woff2/.woff files in public/fonts/ with these names:
-   - MonaSans-Regular.woff2
-   - MonaSans-Bold.woff2
-   If you don't have the files, the sheet will gracefully fall back to the next font.
-*/
-
 @theme {
   --color-primary-50: var(--color-emerald-50);
   --color-primary-100: var(--color-emerald-100);

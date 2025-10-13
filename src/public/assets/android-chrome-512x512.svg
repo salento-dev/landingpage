@@ -1,0 +1,13 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" fill="#000000"/>
+  <text x="256" y="300" font-family="Arial, sans-serif" font-size="160" font-weight="bold" text-anchor="middle" fill="#FFFFFF">s</text>
+  <text x="256" y="380" font-family="Arial, sans-serif" font-size="72" font-weight="normal" text-anchor="middle" fill="#10B981">.dev</text>
+  <!-- Decorative brackets -->
+  <path d="M120 180 L80 220 L80 290 L120 330" stroke="#10B981" stroke-width="6" fill="none"/>
+  <path d="M392 180 L432 220 L432 290 L392 330" stroke="#10B981" stroke-width="6" fill="none"/>
+  <!-- Dots -->
+  <circle cx="180" cy="200" r="6" fill="#10B981"/>
+  <circle cx="332" cy="200" r="6" fill="#10B981"/>
+  <circle cx="180" cy="340" r="6" fill="#10B981"/>
+  <circle cx="332" cy="340" r="6" fill="#10B981"/>
+</svg>

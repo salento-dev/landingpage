@@ -1,0 +1,27 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Main content -->
+  <text x="600" y="250" font-family="Arial, sans-serif" font-size="120" font-weight="bold" text-anchor="middle" fill="#FFFFFF">salento</text>
+  <text x="600" y="320" font-family="Arial, sans-serif" font-size="120" font-weight="bold" text-anchor="middle" fill="#10B981">.dev</text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="420" font-family="Arial, sans-serif" font-size="32" font-weight="normal" text-anchor="middle" fill="#CCCCCC">Community di sviluppatori del basso Salento</text>
+  
+  <!-- Decorative elements -->
+  <circle cx="200" cy="150" r="8" fill="#10B981" opacity="0.6"/>
+  <circle cx="1000" cy="480" r="12" fill="#10B981" opacity="0.4"/>
+  <circle cx="150" cy="500" r="6" fill="#10B981" opacity="0.8"/>
+  <circle cx="1050" cy="150" r="10" fill="#10B981" opacity="0.5"/>
+  
+  <!-- Code brackets -->
+  <path d="M80 200 L40 240 L40 390 L80 430" stroke="#10B981" stroke-width="4" fill="none" opacity="0.7"/>
+  <path d="M1120 200 L1160 240 L1160 390 L1120 430" stroke="#10B981" stroke-width="4" fill="none" opacity="0.7"/>
+</svg>
