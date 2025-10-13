@@ -73,11 +73,7 @@
   }
 
   .container {
-    @apply container;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin-left: auto;
-    margin-right: auto;
+    @apply container px-4 md:px-8 mx-auto;
   }
 
 }
@@ -97,7 +93,7 @@
   }
 
   section {
-    @apply flex flex-col items-center justify-center min-h-screen w-full;
+    @apply flex flex-col items-center justify-center min-h-screen w-full py-8 md:py-16 xl:py-32;
   }
 
   .card {
@@ -177,7 +173,7 @@
 
     .editor-content {
       display: flex;
-      font-size: clamp(0.75rem, 3vw, 1.5rem);
+      font-size: clamp(0.75rem, 2vw, 1.5rem);
       line-height: 1.5;
 
       .editor-content-lines {
