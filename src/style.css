@@ -1,0 +1,212 @@
+@import "tailwindcss";
+
+
+/* Mona Sans (local files expected in /public/fonts)
+   Place your Mona Sans .woff2/.woff files in public/fonts/ with these names:
+   - MonaSans-Regular.woff2
+   - MonaSans-Bold.woff2
+   If you don't have the files, the sheet will gracefully fall back to the next font.
+*/
+
+@theme {
+  --color-primary-50: var(--color-emerald-50);
+  --color-primary-100: var(--color-emerald-100);
+  --color-primary-200: var(--color-emerald-200);
+  --color-primary-300: var(--color-emerald-300);
+  --color-primary-400: var(--color-emerald-400);
+  --color-primary-500: var(--color-emerald-500);
+  --color-primary-600: var(--color-emerald-600);
+  --color-primary-700: var(--color-emerald-700);
+  --color-primary-800: var(--color-emerald-800);
+  --color-primary-900: var(--color-emerald-900);
+  --color-primary-950: var(--color-emerald-950);
+  --color-primary: var(--color-primary-400);
+
+  --color-secondary-50: var(--color-teal-50);
+  --color-secondary-100: var(--color-teal-100);
+  --color-secondary-200: var(--color-teal-200);
+  --color-secondary-300: var(--color-teal-300);
+  --color-secondary-400: var(--color-teal-400);
+  --color-secondary-500: var(--color-teal-500);
+  --color-secondary-600: var(--color-teal-600);
+  --color-secondary-700: var(--color-teal-700);
+  --color-secondary-800: var(--color-teal-800);
+  --color-secondary-900: var(--color-teal-900);
+  --color-secondary-950: var(--color-teal-950);
+  --color-secondary: var(--color-secondary-400);
+
+  --color-surface-50: oklch(97.034% 0.01038 248.179);
+  --color-surface-100: oklch(85.691% 0.01422 248.154);
+  --color-surface-200: oklch(78.495% 0.01747 250.989);
+  --color-surface-300: oklch(66.248% 0.01821 251.011);
+  --color-surface-400: oklch(56.286% 0.01962 256.386);
+  --color-surface-500: oklch(42.467% 0.01752 254.775);
+  --color-surface-600: oklch(32.999% 0.01492 252.364);
+  --color-surface-700: oklch(26.664% 0.01499 256.834);
+  --color-surface-800: oklch(22.022% 0.01573 256.847);
+  --color-surface-900: oklch(17.629% 0.01404 258.383);
+  --color-surface-950: oklch(10.682% 0.00759 256.847);
+  --color-surface: var(--color-surface-950);
+  --color-surface-contrast: var(--color-surface-50);
+}
+
+:root {
+  --border-color: var(--gray-color-600);
+  --text-slate: var(--gray-color-400);
+  --text-primary: var(--primary-color-500);
+}
+
+@layer base {
+
+  html,
+  body {
+    margin: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: var(--color-surface-950);
+    color: var(--color-surface-50);
+    font-family: 'Mona Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  }
+
+  footer {
+    @apply w-full py-6 mt-12 bg-surface-900 border-t border-solid border-surface-800;
+  }
+
+  .container {
+    @apply container;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+
+@layer components {
+
+  h1.title {
+    font-size: clamp(3rem, 10vw, 4rem);
+    @apply text-center my-4;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  p.subtitle {
+    font-size: clamp(1.25rem, 3vw, 1.725rem);
+    @apply text-center text-surface-300 mb-4;
+  }
+
+  section {
+    @apply flex flex-col items-center justify-center min-h-screen w-full;
+  }
+
+  .card {
+    @apply bg-surface-800 py-8 px-6 rounded-xl;
+
+    .card-title {
+      @apply mt-5 text-2xl font-medium tracking-tight;
+    }
+
+    .card-description {
+      @apply text-surface-400 mt-2 text-lg;
+    }
+
+    &.card-large {
+      @apply rounded-4xl;
+
+      .inner-card {
+        @apply rounded-3xl;
+
+        &::before {
+          @apply rounded-4xl;
+        }
+      }
+    }
+
+    &.card-features {
+      @apply bg-linear-45 from-primary-600 to-secondary-300;
+    }
+  }
+
+  .inner-card {
+    @apply relative bg-surface-50 text-surface-950 rounded-lg;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -1rem;
+      left: -1rem;
+      width: calc(100% + 2rem);
+      height: calc(100% + 2rem);
+
+      @apply hidden md:block bg-surface-50/30 rounded-xl;
+    }
+  }
+
+  .editor {
+    @apply w-full max-w-4xl overflow-hidden;
+
+    .editor-header {
+      @apply flex items-center justify-between px-4 py-3 border-b border-solid border-surface-500/20;
+
+      .editor-controls {
+        @apply flex items-center;
+
+        .dot {
+          @apply inline-block w-4 h-4 rounded-full mr-3;
+
+          &.red {
+            @apply bg-red-500;
+          }
+
+          &.yellow {
+            @apply bg-yellow-500;
+          }
+
+          &.green {
+            @apply bg-green-500;
+          }
+        }
+      }
+
+      .filename {
+        @apply text-surface-500 font-medium;
+      }
+
+    }
+
+    .editor-content {
+      display: flex;
+      font-size: clamp(0.75rem, 3vw, 1.5rem);
+      line-height: 1.5;
+
+      .editor-content-lines {
+        @apply text-surface-100 py-4 px-2 lg:pl-10 select-none;
+      }
+
+      .editor-content-text {
+        @apply flex-1 py-4 pr-2 md:px-3 text-primary-800 font-mono;
+      }
+    }
+  }
+
+}
+
+@layer utilities {}
+
+/* .feature-card {
+  @apply bg-primary rounded-lg p-8;
+  @apply transition-all relative overflow-hidden;
+  @apply hover:translate-y-[-4px] hover:shadow-xl;
+
+  &::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-0.5;
+    @apply bg-gradient-to-r from-primary-700 to-primary-800;
+    @apply opacity-0 transition-opacity duration-200;
+  }
+
+  &:hover::before {
+    @apply opacity-100;
+  }
+} */
