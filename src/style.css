@@ -40,25 +40,20 @@
   --color-surface-950: oklch(10.682% 0.00759 256.847);
   --color-surface: var(--color-surface-950);
   --color-surface-contrast: var(--color-surface-50);
-}
 
-:root {
-  --border-color: var(--gray-color-600);
-  --text-slate: var(--gray-color-400);
-  --text-primary: var(--primary-color-500);
+  --color-muted: var(--color-surface-400);
 }
 
 @layer base {
 
   html {
     overflow: hidden;
-    width: 100vh;
+    width: 100vw;
     height: 100vh;
     margin: 0;
     padding: 0;
-    background-color: var(--color-surface-950);
-    color: var(--color-surface-50);
     font-family: 'Mona Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    @apply bg-surface-50 dark:bg-surface-950 text-surface-950 dark:text-surface-50;
   }
 
   body {
@@ -69,7 +64,7 @@
   }
 
   footer {
-    @apply w-full py-6 mt-12 bg-surface-900 border-t border-solid border-surface-800;
+    @apply w-full py-6 mt-12 bg-surface-100/10 dark:bg-surface-900 border-t border-solid border-surface-100/50 dark:border-surface-800;
   }
 
   .container {
@@ -89,7 +84,7 @@
 
   p.subtitle {
     font-size: clamp(1.25rem, 3vw, 1.725rem);
-    @apply text-center text-surface-300 mb-4 leading-relaxed;
+    @apply text-center text-muted mb-4 leading-relaxed;
   }
 
   section {
@@ -97,14 +92,14 @@
   }
 
   .card {
-    @apply bg-surface-800 py-8 px-6 rounded-xl;
+    @apply bg-surface-100/40 dark:bg-surface-800 py-8 px-6 rounded-xl;
 
     .card-title {
       @apply mt-5 text-2xl font-medium tracking-tight;
     }
 
     .card-description {
-      @apply text-surface-400 mt-2 text-lg leading-relaxed;
+      @apply text-muted mt-2 text-lg leading-relaxed;
     }
 
     &.card-large {
@@ -188,8 +183,6 @@
 
 }
 
-@layer utilities {}
-
 /* .feature-card {
   @apply bg-primary rounded-lg p-8;
   @apply transition-all relative overflow-hidden;
@@ -206,3 +199,64 @@
     @apply opacity-100;
   }
 } */
+
+/* Accessibilità - Skip links e focus management */
+.sr-only {
+  top: -10px;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.focus\:not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Focus personalizzato per accessibilità AAA */
+:focus {
+  outline: 3px solid var(--color-primary-400);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-primary-400);
+  outline-offset: 2px;
+}
+
+/* Supporto per prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --color-surface-950: oklch(5% 0 0);
+    --color-primary: oklch(85% 0.2 150);
+  }
+}

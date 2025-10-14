@@ -15,6 +15,11 @@
   <meta name="language" content="Italian" />
   <meta name="revisit-after" content="7 days" />
   
+  <!-- Accessibilità -->
+  <meta name="color-scheme" content="dark light" />
+  <meta name="supported-color-schemes" content="dark light" />
+  <meta name="format-detection" content="telephone=no" />
+  
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://salento.dev/" />
@@ -86,92 +91,112 @@
 </head>
 
 <body class="overflow-y-auto scroll-smooth max-h-screen snap-y">
+  <!-- Skip links per l'accessibilità -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-primary-600 focus:text-white focus:px-4 focus:py-2 focus:rounded">
+    Salta al contenuto principale
+  </a>
+  <a href="#nav-links" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-40 focus:z-50 focus:bg-primary-600 focus:text-white focus:px-4 focus:py-2 focus:rounded">
+    Salta alla navigazione
+  </a>
 
-  <section class="container snap-start">
-    <h1 class="title">salento<span class="text-primary-300">.dev</span></h1>
-    <p class="subtitle">
-      Community di sviluppatori del basso Salento
-    </p>
-    <div class="card card-large p-0 md:px-16 md:py-12 lg:px-24 lg:py-20 xl:px-32 xl:py-28 card-features w-full max-w-5xl mt-[10vh]">
-      <div class="inner-card">
-        <random-editor></random-editor>
+  <main id="main-content" role="main">
+    <section class="container snap-start" aria-labelledby="hero-title">
+      <header>
+        <h1 id="hero-title" class="title">salento<span class="text-primary" aria-label="punto dev">.dev</span></h1>
+        <p class="subtitle" role="doc-subtitle">
+          Community di sviluppatori del basso Salento
+        </p>
+      </header>
+      <div class="card card-large p-0 md:px-16 md:py-12 lg:px-24 lg:py-20 xl:px-32 xl:py-28 card-features w-full max-w-5xl mt-[10vh]" role="region" aria-label="Editor di codice interattivo">
+        <div class="inner-card">
+          <random-editor></random-editor>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="container snap-start">
-    <figure class="card card-large p-8 md:px-16 md:py-12 lg:px-24 lg:py-20 xl:px-32 xl:py-28">
-      <div class="text-primary-300 font-bold text-[20vh] mb-[-5vh]" style="line-height: 1;">“</div>
-      <blockquote class="m-0 p-0 font-medium text-2xl md:text-3xl lg:text-4xl xl:text-5xl" style="line-height: 1.2;">
-        Salento.dev è una community di sviluppatori del Basso Salento, nata con l'obiettivo di condividere conoscenze,
-        esperienze e risorse utili per chi lavora nel campo dello sviluppo software.
-        <span class="text-surface-200">Unisciti a noi per crescere insieme e contribuire alla
-          crescita del settore tecnologico nella nostra regione.</span>
-      </blockquote>
-    </figure>
-  </section>
+    <section class="container snap-start" aria-labelledby="about-title">
+      <article>
+        <figure class="card card-large p-8 md:px-16 md:py-12 lg:px-24 lg:py-20 xl:px-32 xl:py-28" role="region" aria-label="Citazione sulla community">
+          <div class="text-primary font-bold text-[20vh] mb-[-5vh]" style="line-height: 1;" aria-hidden="true">“</div>
+          <blockquote class="m-0 p-0 font-medium text-2xl md:text-3xl lg:text-4xl xl:text-5xl" style="line-height: 1.2;" cite="https://salento.dev">
+            Salento.dev è una community di sviluppatori del Basso Salento, nata con l'obiettivo di condividere conoscenze,
+            esperienze e risorse utili per chi lavora nel campo dello sviluppo software.
+            <span class="text-muted">Unisciti a noi per crescere insieme e contribuire alla
+              crescita del settore tecnologico nella nostra regione.</span>
+          </blockquote>
+        </figure>
+      </article>
+    </section>
 
-  <section class="container snap-start">
-    <h2 class="text-6xl font-medium mb-16">I nostri principi</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
-      <feature-card 
-        title="Condivisione di conoscenze"
-        description="Partecipa a discussioni, workshop e presentazioni su argomenti legati allo sviluppo software, condividendo le tue esperienze e imparando dagli altri membri della community.">
-        <octo-logo color="var(--color-primary-300)" width="44" height="44" slot="icon"></octo-logo>
-      </feature-card>
+    <section class="container snap-start" aria-labelledby="principles-title">
+      <h2 id="principles-title" class="text-6xl font-medium mb-16">I nostri principi</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8" role="list" aria-label="Lista dei principi della community">
+        <feature-card 
+          title="Condivisione di conoscenze"
+          description="Partecipa a discussioni, workshop e presentazioni su argomenti legati allo sviluppo software, condividendo le tue esperienze e imparando dagli altri membri della community."
+          role="listitem">
+          <octo-logo class="text-primary" width="44" height="44" slot="icon" aria-hidden="true"></octo-logo>
+        </feature-card>
 
-      <feature-card 
-        title="Networking"
-        description="Connettiti con altri sviluppatori, professionisti del settore e aziende locali per creare opportunità di collaborazione, lavoro e crescita professionale.">
-        <octo-logo color="var(--color-primary-300)" width="44" height="44" slot="icon"></octo-logo>
-      </feature-card>
+        <feature-card 
+          title="Networking"
+          description="Connettiti con altri sviluppatori, professionisti del settore e aziende locali per creare opportunità di collaborazione, lavoro e crescita professionale."
+          role="listitem">
+          <octo-logo class="text-primary" width="44" height="44" slot="icon" aria-hidden="true"></octo-logo>
+        </feature-card>
 
-      <feature-card 
-        title="Risorse utili"
-        description="Accedi a una vasta gamma di risorse, tra cui tutorial, guide, strumenti e materiali didattici, per supportare il tuo percorso di apprendimento e sviluppo professionale.">
-        <octo-logo color="var(--color-primary-300)" width="44" height="44" slot="icon"></octo-logo>
-      </feature-card>
+        <feature-card 
+          title="Risorse utili"
+          description="Accedi a una vasta gamma di risorse, tra cui tutorial, guide, strumenti e materiali didattici, per supportare il tuo percorso di apprendimento e sviluppo professionale."
+          role="listitem">
+          <octo-logo class="text-primary" width="44" height="44" slot="icon" aria-hidden="true"></octo-logo>
+        </feature-card>
 
-      <feature-card 
-        title="Innovazione Tecnologica"
-        description="Esplora le ultime tendenze tecnologiche e partecipa a progetti innovativi. Condividi le tue competenze e scopri nuove opportunità di crescita nel settore tech.">
-        <octo-logo color="var(--color-primary-300)" width="44" height="44" slot="icon"></octo-logo>
-      </feature-card>
+        <feature-card 
+          title="Innovazione Tecnologica"
+          description="Esplora le ultime tendenze tecnologiche e partecipa a progetti innovativi. Condividi le tue competenze e scopri nuove opportunità di crescita nel settore tech."
+          role="listitem">
+          <octo-logo class="text-primary" width="44" height="44" slot="icon" aria-hidden="true"></octo-logo>
+        </feature-card>
 
-      <feature-card 
-        title="Formazione Continua"
-        description="Accedi a corsi, workshop e sessioni di mentoring personalizzate. Migliora le tue competenze tecniche e soft skills attraverso un percorso di apprendimento strutturato.">
-        <octo-logo color="var(--color-primary-300)" width="44" height="44" slot="icon"></octo-logo>
-      </feature-card>
+        <feature-card 
+          title="Formazione Continua"
+          description="Accedi a corsi, workshop e sessioni di mentoring personalizzate. Migliora le tue competenze tecniche e soft skills attraverso un percorso di apprendimento strutturato."
+          role="listitem">
+          <octo-logo class="text-primary" width="44" height="44" slot="icon" aria-hidden="true"></octo-logo>
+        </feature-card>
 
-      <feature-card 
-        title="Sviluppo Territoriale"
-        description="Contribuisci alla crescita digitale del territorio salentino. Partecipa a progetti locali e aiuta a creare un ecosistema tech innovativo nella nostra regione.">
-        <octo-logo color="var(--color-primary-300)" width="44" height="44" slot="icon"></octo-logo>
-      </feature-card>
-    </div>
-  </section>
+        <feature-card 
+          title="Sviluppo Territoriale"
+          description="Contribuisci alla crescita digitale del territorio salentino. Partecipa a progetti locali e aiuta a creare un ecosistema tech innovativo nella nostra regione."
+          role="listitem">
+          <octo-logo class="text-primary" width="44" height="44" slot="icon" aria-hidden="true"></octo-logo>
+        </feature-card>
+      </div>
+    </section>
+  </main>
 
-  <footer class="snap-end">
+  <footer class="snap-end" role="contentinfo">
     <div class="container text-center lg:text-left flex flex-col lg:flex-row items-center justify-between gap-4">
       <div class="text-sm text-neutral-400">
-        <div class="text-neutral-200 font-medium">salento.dev</div>
-        <div class="mt-2 text-xs text-neutral-500">&copy; 2025 salento.dev — Tutti i diritti riservati.</div>
+        <div class="text-muted font-medium">salento.dev</div>
+        <div class="mt-2 text-xs text-muted/80">&copy; 2025 salento.dev — Tutti i diritti riservati.</div>
       </div>
 
       <div class="flex items-center gap-6">
-        <nav class="flex gap-4 text-sm">
-          <a href="#" class="text-neutral-300 hover:underline">Docs</a>
-          <a href="#" class="text-neutral-300 hover:underline">Community</a>
-          <a href="#" class="text-neutral-300 hover:underline" target="_blank" rel="noopener">GitHub</a>
-        </nav>
+        <!-- <nav id="nav-links" class="flex gap-4 text-sm" role="navigation" aria-label="Menu principale">
+          <a href="#" class="text-neutral-300 hover:underline focus:underline focus:outline-2 focus:outline-primary-400" tabindex="0">Docs</a>
+          <a href="#" class="text-neutral-300 hover:underline focus:underline focus:outline-2 focus:outline-primary-400" tabindex="0">Community</a>
+          <a href="#" class="text-neutral-300 hover:underline focus:underline focus:outline-2 focus:outline-primary-400" target="_blank" rel="noopener noreferrer" tabindex="0">
+            GitHub<span class="sr-only"> (si apre in una nuova scheda)</span>
+          </a>
+        </nav> -->
 
-        <div class="flex items-center gap-3">
-          <a href="#" class="text-neutral-400 hover:text-neutral-200 text-sm">Twitter</a>
-          <a href="#" class="text-neutral-400 hover:text-neutral-200 text-sm">Discord</a>
+        <div class="flex items-center gap-3" role="group" aria-label="Link social">
+          <a href="#" class="text-muted hover:text-muted/80 text-sm focus:text-muted focus:outline-2 focus:outline-primary" tabindex="0" aria-label="Segui su Twitter">Twitter</a>
+          <a href="#" class="text-muted hover:text-muted/80 text-sm focus:text-muted focus:outline-2 focus:outline-primary" tabindex="0" aria-label="Unisciti su Discord">Discord</a>
         </div>
       </div>
-    </div>
     </div>
   </footer>
   <script type="module" src="./main.js"></script>
