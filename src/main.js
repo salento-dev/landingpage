@@ -7,18 +7,9 @@ class OctoLogo extends HTMLElement {
   }
 
   connectedCallback() {
-    const width = this.getAttribute('width') || '24';
-    const height = this.getAttribute('height') || '24';
-    const ariaHidden = this.getAttribute('aria-hidden') === 'true';
+    const iconUrl = this.getAttribute('icon') || '/assets/icons/octo.svg';
 
-    this.innerHTML = `
-      <svg ${ariaHidden ? 'aria-hidden="true"' : ''} focusable="false" viewBox="0 0 24 24" 
-        width="${width}" height="${height}" fill="currentColor"
-        role="img" style="vertical-align:text-bottom">
-        ${!ariaHidden ? '<title>Logo GitHub Octopus</title>' : ''}
-        <path d="M12.876.64V.639l8.25 4.763c.541.313.875.89.875 1.515v9.525a1.75 1.75 0 0 1-.875 1.516l-8.25 4.762a1.748 1.748 0 0 1-1.75 0l-8.25-4.763a1.75 1.75 0 0 1-.875-1.515V6.917c0-.625.334-1.202.875-1.515L11.126.64a1.748 1.748 0 0 1 1.75 0Zm-1 1.298L4.251 6.34l7.75 4.474 7.75-4.474-7.625-4.402a.248.248 0 0 0-.25 0Zm.875 19.123 7.625-4.402a.25.25 0 0 0 .125-.216V7.639l-7.75 4.474ZM3.501 7.64v8.803c0 .09.048.172.125.216l7.625 4.402v-8.947Z"></path>
-      </svg>
-    `;
+    this.innerHTML = `<div class="h-16 w-16 bg-primary-gradient" style="--svg: url('${iconUrl}'); -webkit-mask: var(--svg); mask: var(--svg);"></div>`;
   }
 }
 customElements.define('octo-logo', OctoLogo);
@@ -70,7 +61,7 @@ class RandomEditor extends HTMLElement {
             <span class="dot yellow" aria-hidden="true"></span>
             <span class="dot green" aria-hidden="true"></span>
           </div>
-          <span class="filename">Edit new file</span>
+          <span class="filename" aria-hidden="true">Edit new file</span>
         </div>
 
         <!-- body -->
@@ -89,9 +80,8 @@ class RandomEditor extends HTMLElement {
 
           <!-- code area -->
           <div class="editor-content-text">
-            <span class="typed-code" style="white-space: pre;" 
-                  aria-live="polite" 
-                  aria-label="Codice che si scrive automaticamente">
+            <span id="typed-code" style="white-space: pre;" 
+                  aria-live="polite">
             </span>
           </div>
         </div>
@@ -103,7 +93,7 @@ customElements.define('random-editor', RandomEditor);
 // Verifica prefers-reduced-motion prima di inizializzare l'animazione
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-const typed = new Typed('.typed-code', {
+const typed = new Typed('#typed-code', {
   strings: [
     `console.log('Benvenuto in Salento.dev!');`,
     'const salento = "passione + condivisione";\n\tfunction condividi(idea) {\n \t\treturn idea + " ❤️";\n \t}\n condividi("conoscenza");',
