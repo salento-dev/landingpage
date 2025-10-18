@@ -90,10 +90,9 @@
 @layer components {
 
   h1.title {
-    font-size: clamp(3rem, 10vw, 4rem);
-    @apply text-center my-4;
-    font-weight: 700;
-    line-height: 1.2;
+    font-size: clamp(4rem, 10vw, 16rem);
+    @apply font-bold mb-4;
+    line-height: 1;
   }
 
   p.subtitle {

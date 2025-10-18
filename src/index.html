@@ -110,38 +110,20 @@
     Hero 
     -->
 
-    <section class="container snap-start" aria-labelledby="hero-title">
-      <header>
-        <h1 id="hero-title" class="title">salento<span class="text-primary">.dev</span></h1>
-        <p class="subtitle" role="doc-subtitle">
-          Community di sviluppatori del basso Salento
-        </p>
-      </header>
-      <div
-        class="card card-large bg-primary-gradient p-0 md:px-16 md:py-12 lg:px-24 lg:py-20 xl:px-32 xl:py-28 w-full max-w-5xl mt-[10vh]"
-        role="region" aria-label="Editor di codice interattivo">
-        <div class="inner-card">
-          <random-editor></random-editor>
-        </div>
-      </div>
-    </section>
-
-    <!-- 
-    Manifesto 
-    -->
-
     <section class="container snap-start" aria-labelledby="manifesto-title">
-      <div class="card card-large flex flex-col items-start p-8 md:px-16 md:py-12 lg:px-24 lg:py-20 xl:px-32 xl:py-28">
-        <h2 id="manifesto-title" class="text-primary font-bold text-[10vw]">Manifesto</h2>
-        <p class="m-0 p-0 font-medium text-xl md:text-2xl lg:text-3xl xl:text-4xl" style="line-height: 1.2;">
+      <header class="mb-32 text-center">
+        <h1 id="manifesto-title" class="title text-primary">Salento.dev</h1>
+        <p class="max-w-6xl mx-auto p-0 text-muted font-medium text-lg md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl" style="line-height: 1.3;">
           Siamo un gruppo di sviluppatori software che vivono o hanno radici nella penisola Salentina,
           con la volontà di creare un ambiente fertile per lo scambio di idee e competenze,
           per stimolare il confronto e la crescita tecnica.
         </p>
-        <div class="mt-8 p-6 bg-primary/10 rounded-lg border border-primary/20">
-          <p class="text-lg font-medium text-primary">
-            La nostra visione è quella di una cultura tecnica solida radicata nel Salento.
-          </p>
+      </header>
+
+      <div class="card card-large max-w-full w-5xl bg-primary-gradient p-0 md:px-16 md:py-12 lg:px-24 lg:py-20 xl:px-32 xl:py-28"
+        role="region" aria-label="Editor di codice interattivo">
+        <div class="inner-card w-full">
+          <random-editor></random-editor>
         </div>
       </div>
     </section>
@@ -270,67 +252,34 @@
       <!-- Grid di categorie professionali -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-4 xl:gap-8 mb-16">
 
-        <color-card
-          color="blue"
-          icon="{ }"
-          title="Web Development"
-          description="Frontend, backend, full-stack"
-        ></color-card>
+        <color-card color="blue" icon="{ }" title="Web Development"
+          description="Frontend, backend, full-stack"></color-card>
 
-        <color-card
-          color="purple"
-          icon="📱"
-          title="Mobile & Gaming"
-          description="Mobile, game, embedded/IoT"
-        ></color-card>
-        
-        <color-card
-          color="emerald"
-          icon="🤖"
-          title="AI & Data"
-          description="AI/ML developer, Data Scientist"
-        ></color-card>
+        <color-card color="purple" icon="📱" title="Mobile & Gaming"
+          description="Mobile, game, embedded/IoT"></color-card>
 
-        <color-card
-          color="pink"
-          icon="☁️"
-          title="DevOps & Cloud"
-          description="DevOps, SRE, Platform/Cloud"
-        ></color-card>
+        <color-card color="emerald" icon="🤖" title="AI & Data"
+          description="AI/ML developer, Data Scientist"></color-card>
 
-        <color-card
-          color="cyan"
-          icon="📊"
-          title="Data Platform"
-          description="Data platform & DataOps"
-        ></color-card>
+        <color-card color="pink" icon="☁️" title="DevOps & Cloud"
+          description="DevOps, SRE, Platform/Cloud"></color-card>
 
-        <color-card
-          color="red"
-          icon="🔒"
-          title="Security"
-          description="Cybersecurity & DevSecOps"
-        ></color-card>
+        <color-card color="cyan" icon="📊" title="Data Platform" description="Data platform & DataOps"></color-card>
 
-        <color-card
-          color="yellow"
-          icon="🧪"
-          title="QA & Testing"
-          description="QA/Automation & Test engineering"
-        ></color-card>
+        <color-card color="red" icon="🔒" title="Security" description="Cybersecurity & DevSecOps"></color-card>
 
-        <color-card
-          color="indigo"
-          icon="🔧"
-          title="Infrastructure"
-          description="Systems/Infrastructure & Networking"
-        ></color-card>
+        <color-card color="yellow" icon="🧪" title="QA & Testing"
+          description="QA/Automation & Test engineering"></color-card>
+
+        <color-card color="indigo" icon="🔧" title="Infrastructure"
+          description="Systems/Infrastructure & Networking"></color-card>
 
       </div>
 
       <!-- Nota di esclusione -->
       <div class="max-w-3xl mx-auto">
-        <div class="text-center p-6 bg-surface-100/10 dark:bg-surface-900/50 border border-surface-100/30 dark:border-surface-800 rounded-xl">
+        <div
+          class="text-center p-6 bg-surface-100/10 dark:bg-surface-900/50 border border-surface-100/30 dark:border-surface-800 rounded-xl">
           <p class="text-primary font-bold mb-3">
             Nota importante
           </p>
@@ -350,40 +299,45 @@
       <header class="text-center mb-8 max-w-4xl mx-auto">
         <h2 id="condotta-title" class="text-6xl font-medium mb-4">Codice di condotta</h2>
         <p class="text-lg text-muted mb-8">
-          Promuoviamo un ambiente inclusivo, rispettoso e collaborativo dove ogni membro può crescere professionalmente e contribuire alla community in modo costruttivo, pertanto non accettiamo:
+          Promuoviamo un ambiente inclusivo, rispettoso e collaborativo dove ogni membro può crescere professionalmente
+          e contribuire alla community in modo costruttivo, pertanto non accettiamo:
         </p>
       </header>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 xl:gap-8 mx-auto mb-16 text-center">
-        
+
         <feature-card title="Molestie e discriminazioni" class="bg-red-500/20"
           description="Zero tolleranza per qualsiasi forma di molestia, discriminazione basata su genere, età, orientamento, etnia, religione o altre caratteristiche personali."
           role="listitem">
-          <s-icon icon="/assets/icons/no-symbol.svg" slot="icon" class="inline-block text-red-600 size-20" aria-hidden="true"></s-icon>
+          <s-icon icon="/assets/icons/no-symbol.svg" slot="icon" class="inline-block text-red-600 size-20"
+            aria-hidden="true"></s-icon>
         </feature-card>
 
         <feature-card title="Comportamenti illegali"
           description="Non tolleriamo attività illegali, violazione di proprietà intellettuale, condivisione di contenuti pirata o qualsiasi comportamento contrario alla legge."
           role="listitem">
-          <s-icon icon="/assets/icons/no-symbol.svg" slot="icon" class="inline-block text-red-600 size-20" aria-hidden="true"></s-icon>
+          <s-icon icon="/assets/icons/no-symbol.svg" slot="icon" class="inline-block text-red-600 size-20"
+            aria-hidden="true"></s-icon>
         </feature-card>
 
         <feature-card title="Contenuti non pertinenti"
           description="Spam, recruiting aggressivo, pubblicità travestita o contenuti non legati allo sviluppo software non sono benvenuti nella nostra community."
           role="listitem">
-          <s-icon icon="/assets/icons/no-symbol.svg" slot="icon" class="inline-block text-red-600 size-20" aria-hidden="true"></s-icon>
+          <s-icon icon="/assets/icons/no-symbol.svg" slot="icon" class="inline-block text-red-600 size-20"
+            aria-hidden="true"></s-icon>
         </feature-card>
 
       </div>
 
       <!-- Call to action positiva -->
       <div class="max-w-3xl mx-auto">
-        <div class="text-center p-6 bg-surface-100/10 dark:bg-surface-900/50 border border-surface-100/30 dark:border-surface-800 rounded-xl">
+        <div
+          class="text-center p-6 bg-surface-100/10 dark:bg-surface-900/50 border border-surface-100/30 dark:border-surface-800 rounded-xl">
           <p class="text-muted mb-3">
             <strong class="text-primary">Ricorda:</strong> Siamo tutti qui per imparare e crescere insieme.
           </p>
           <p class="text-sm text-muted">
-            Tratta gli altri come vorresti essere trattato e contribuisci a creare un ambiente 
+            Tratta gli altri come vorresti essere trattato e contribuisci a creare un ambiente
             dove tutti possano prosperare professionalmente.
           </p>
         </div>
@@ -404,25 +358,24 @@
 
       <!-- Grid dei firmatari -->
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-        
+
         <!-- Alessandro Marra -->
         <div class="group relative card">
           <div class="flex flex-col items-center text-center">
-            <div class="w-16 h-16 rounded-full overflow-hidden mb-4 group-hover:scale-105 transition-transform duration-300 ring-2 ring-primary/20 group-hover:ring-primary/40">
-              <img 
-                src="https://github.com/alemarra89.png?size=128" 
-                alt="Alessandro Marra" 
-                class="w-full h-full object-cover"
-                loading="lazy"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-              />
-              <div class="w-full h-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center" style="display: none;">
+            <div
+              class="w-16 h-16 rounded-full overflow-hidden mb-4 group-hover:scale-105 transition-transform duration-300 ring-2 ring-primary/20 group-hover:ring-primary/40">
+              <img src="https://github.com/alemarra89.png?size=128" alt="Alessandro Marra"
+                class="w-full h-full object-cover" loading="lazy"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="w-full h-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center"
+                style="display: none;">
                 <span class="text-white font-bold text-xl">AM</span>
               </div>
             </div>
             <h3 class="font-semibold mb-1">Alessandro Marra</h3>
             <p class="text-xs text-muted/80">Co-fondatore</p>
-            <a href="https://github.com/alemarra89" target="_blank" rel="noopener noreferrer" class="text-xs text-primary/80 hover:text-primary transition-colors">
+            <a href="https://github.com/alemarra89" target="_blank" rel="noopener noreferrer"
+              class="text-xs text-primary/80 hover:text-primary transition-colors">
               @alemarra89
             </a>
           </div>
@@ -431,21 +384,20 @@
         <!-- Fabio D'Urso -->
         <div class="group relative card">
           <div class="flex flex-col items-center text-center">
-            <div class="w-16 h-16 rounded-full overflow-hidden mb-4 group-hover:scale-105 transition-transform duration-300 ring-2 ring-primary/20 group-hover:ring-primary/40">
-              <img 
-                src="https://github.com/dursofabio.png?size=128" 
-                alt="Fabio D'Urso" 
-                class="w-full h-full object-cover"
-                loading="lazy"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-              />
-              <div class="w-full h-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center" style="display: none;">
+            <div
+              class="w-16 h-16 rounded-full overflow-hidden mb-4 group-hover:scale-105 transition-transform duration-300 ring-2 ring-primary/20 group-hover:ring-primary/40">
+              <img src="https://github.com/dursofabio.png?size=128" alt="Fabio D'Urso"
+                class="w-full h-full object-cover" loading="lazy"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="w-full h-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center"
+                style="display: none;">
                 <span class="text-white font-bold text-xl">FD</span>
               </div>
             </div>
             <h3 class="font-semibold mb-1">Fabio D'Urso</h3>
             <p class="text-xs text-muted/80">Co-fondatore</p>
-            <a href="https://github.com/dursofabio" target="_blank" rel="noopener noreferrer" class="text-xs text-primary/80 hover:text-primary transition-colors">
+            <a href="https://github.com/dursofabio" target="_blank" rel="noopener noreferrer"
+              class="text-xs text-primary/80 hover:text-primary transition-colors">
               @dursofabio
             </a>
           </div>
@@ -454,21 +406,19 @@
         <!-- Giuseppe Ciullo -->
         <div class="group relative card">
           <div class="flex flex-col items-center text-center">
-            <div class="w-16 h-16 rounded-full overflow-hidden mb-4 group-hover:scale-105 transition-transform duration-300 ring-2 ring-primary/20 group-hover:ring-primary/40">
-              <img 
-                src="https://github.com/JBassx.png?size=128" 
-                alt="Giuseppe Ciullo" 
-                class="w-full h-full object-cover"
-                loading="lazy"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-              />
-              <div class="w-full h-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center" style="display: none;">
+            <div
+              class="w-16 h-16 rounded-full overflow-hidden mb-4 group-hover:scale-105 transition-transform duration-300 ring-2 ring-primary/20 group-hover:ring-primary/40">
+              <img src="https://github.com/JBassx.png?size=128" alt="Giuseppe Ciullo" class="w-full h-full object-cover"
+                loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="w-full h-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center"
+                style="display: none;">
                 <span class="text-white font-bold text-xl">GC</span>
               </div>
             </div>
             <h3 class="font-semibold mb-1">Giuseppe Ciullo</h3>
             <p class="text-xs text-muted/80">Co-fondatore</p>
-            <a href="https://github.com/JBassx" target="_blank" rel="noopener noreferrer" class="text-xs text-primary/80 hover:text-primary transition-colors">
+            <a href="https://github.com/JBassx" target="_blank" rel="noopener noreferrer"
+              class="text-xs text-primary/80 hover:text-primary transition-colors">
               @JBassx
             </a>
           </div>
@@ -477,21 +427,20 @@
         <!-- Paolo Rizzello -->
         <div class="group relative card">
           <div class="flex flex-col items-center text-center">
-            <div class="w-16 h-16 rounded-full overflow-hidden mb-4 group-hover:scale-105 transition-transform duration-300 ring-2 ring-primary/20 group-hover:ring-primary/40">
-              <img 
-                src="https://github.com/Rizzello.png?size=128" 
-                alt="Paolo Rizzello" 
-                class="w-full h-full object-cover"
-                loading="lazy"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-              />
-              <div class="w-full h-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center" style="display: none;">
+            <div
+              class="w-16 h-16 rounded-full overflow-hidden mb-4 group-hover:scale-105 transition-transform duration-300 ring-2 ring-primary/20 group-hover:ring-primary/40">
+              <img src="https://github.com/Rizzello.png?size=128" alt="Paolo Rizzello"
+                class="w-full h-full object-cover" loading="lazy"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="w-full h-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center"
+                style="display: none;">
                 <span class="text-white font-bold text-xl">PR</span>
               </div>
             </div>
             <h3 class="font-semibold mb-1">Paolo Rizzello</h3>
             <p class="text-xs text-muted/80">Co-fondatore</p>
-            <a href="https://github.com/Rizzello" target="_blank" rel="noopener noreferrer" class="text-xs text-primary/80 hover:text-primary transition-colors">
+            <a href="https://github.com/Rizzello" target="_blank" rel="noopener noreferrer"
+              class="text-xs text-primary/80 hover:text-primary transition-colors">
               @Rizzello
             </a>
           </div>
@@ -501,7 +450,8 @@
 
       <!-- Messaggio di chiamata -->
       <div class="max-w-3xl mx-auto mt-12">
-        <div class="text-center p-6 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 rounded-xl">
+        <div
+          class="text-center p-6 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 rounded-xl">
           <p class="text-lg font-medium text-primary mb-2">
             Vuoi unirti alla community?
           </p>
