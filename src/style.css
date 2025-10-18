@@ -89,19 +89,32 @@
 
 @layer components {
 
-  h1.title {
-    font-size: clamp(4rem, 10vw, 16rem);
-    @apply font-bold mb-4;
-    line-height: 1;
-  }
-
-  p.subtitle {
-    font-size: clamp(1.25rem, 3vw, 1.725rem);
-    @apply text-center text-muted mb-4 leading-relaxed;
-  }
-
   section {
-    @apply flex flex-col items-center justify-center min-h-screen w-full py-8 md:py-16 xl:py-32;
+    @apply flex flex-col items-center justify-center lg:min-h-screen w-full py-16 lg:py-24 xl:py-32;
+    &:first-child {
+      @apply min-h-screen;
+    }
+  }
+
+  section>header {
+    @apply md:text-center mb-8 md:mb-12 lg:mb-16 max-w-4xl mx-auto;
+
+    h2 {
+      @apply text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium mb-4;
+    }
+
+    p {
+      @apply text-lg text-muted;
+    }
+
+    h1.title {
+      /* font-size: clamp(4rem, 10vw, 16rem); */
+      @apply mb-4 font-bold text-6xl md:text-7xl lg:text-8xl xl:text-9xl leading-none;
+    }
+
+    p.subtitle {
+      @apply max-w-6xl mx-auto p-0 text-lg md:text-xl lg:text-xl xl:text-2xl;
+    }
   }
 
   .card {

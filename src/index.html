@@ -95,7 +95,7 @@
   </script>
 </head>
 
-<body class="overflow-y-auto scroll-smooth max-h-screen snap-y snap-proximity">
+<body class="overflow-y-auto scroll-smooth max-h-screen xl:snap-y xl:snap-proximity">
   <!-- Skip links per l'accessibilità -->
   <a href="#main-content" class="skip-link">
     Salta al contenuto principale
@@ -111,9 +111,9 @@
     -->
 
     <section class="container snap-start" aria-labelledby="manifesto-title">
-      <header class="mb-32 text-center">
+      <header class="mb-8 md:mb-16 lg:mb-24 text-center">
         <h1 id="manifesto-title" class="title text-primary">Salento.dev</h1>
-        <p class="max-w-6xl mx-auto p-0 text-muted font-medium text-lg md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl" style="line-height: 1.3;">
+        <p class="subtitle" style="line-height: 1.3;">
           Siamo un gruppo di sviluppatori software che vivono o hanno radici nella penisola Salentina,
           con la volontà di creare un ambiente fertile per lo scambio di idee e competenze,
           per stimolare il confronto e la crescita tecnica.
@@ -134,9 +134,9 @@
 
     <section class="container snap-start" aria-labelledby="principles-title">
 
-      <header class="text-center mb-16 max-w-4xl mx-auto">
-        <h2 id="principles-title" class="text-6xl font-medium mb-4">I nostri principi</h2>
-        <p class="text-lg text-muted mb-8">
+      <header>
+        <h2 id="principles-title">I nostri principi</h2>
+        <p>
           Siamo una community che intende innescare un circolo virtuoso, e pensiamo che questo impegno debba essere
           sancito da una serie di principi fondanti:
         </p>
@@ -176,10 +176,9 @@
     -->
 
     <section class="container snap-start" aria-labelledby="attivita-title">
-
-      <header class="text-center mb-8 max-w-4xl mx-auto">
-        <h2 id="attivita-title" class="text-6xl font-medium mb-4">Attività</h2>
-        <p class="text-lg text-muted mb-8">
+      <header>
+        <h2 id="attivita-title">Attività</h2>
+        <p>
           Siamo una community che alterna momenti strutturati di formazione, spazi aperti per confrontarsi e
           occasioni informali per fare rete.
         </p>
@@ -190,7 +189,7 @@
           <h4 class="text-2xl font-semibold mb-4 text-emerald-400">Cosa facciamo</h4>
           <ul class="space-y-3 text-muted">
             <li class="flex items-start gap-3">
-              <s-icon icon="/assets/icons/check.svg" class="text-emerald-400 w-5 h-5" aria-hidden="true"></s-icon>
+              <s-icon icon="/assets/icons/check.svg" class="text-emerald-400 w-5 h-5 flex-shrink-0" aria-hidden="true"></s-icon>
               <span><strong>Meetup e workshop:</strong> incontri tecnici periodici, live coding, talk, panel e
                 Q&A</span>
             </li>
@@ -241,9 +240,9 @@
     -->
 
     <section class="container snap-start" aria-labelledby="ambiti-title">
-      <header class="text-center mb-8 max-w-4xl mx-auto">
-        <h2 id="ambiti-title" class="text-6xl font-medium mb-4">Ambiti di appartenenza</h2>
-        <p class="text-lg text-muted mb-8">
+      <header>
+        <h2 id="ambiti-title">Ambiti di appartenenza</h2>
+        <p>
           Siamo una community di sviluppatori per sviluppatori. Accogliamo figure tecniche che contribuiscono alla
           pratica dello sviluppo, tra cui:
         </p>
@@ -278,9 +277,8 @@
 
       <!-- Nota di esclusione -->
       <div class="max-w-3xl mx-auto">
-        <div
-          class="text-center p-6 bg-surface-100/10 dark:bg-surface-900/50 border border-surface-100/30 dark:border-surface-800 rounded-xl">
-          <p class="text-primary font-bold mb-3">
+        <div class="md:text-center p-6 bg-surface-100/10 dark:bg-surface-900/50 border border-surface-100/30 dark:border-surface-800 rounded-xl">
+          <p class="text-primary mb-3">
             Nota importante
           </p>
           <p class="text-sm text-muted">
@@ -296,34 +294,34 @@
     -->
 
     <section class="container snap-start" aria-labelledby="condotta-title">
-      <header class="text-center mb-8 max-w-4xl mx-auto">
-        <h2 id="condotta-title" class="text-6xl font-medium mb-4">Codice di condotta</h2>
-        <p class="text-lg text-muted mb-8">
+      <header>
+        <h2 id="condotta-title">Codice di condotta</h2>
+        <p>
           Promuoviamo un ambiente inclusivo, rispettoso e collaborativo dove ogni membro può crescere professionalmente
           e contribuire alla community in modo costruttivo, pertanto non accettiamo:
         </p>
       </header>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 xl:gap-8 mx-auto mb-16 text-center">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 xl:gap-8 mx-auto mb-16 md:text-center">
 
-        <feature-card title="Molestie e discriminazioni" class="bg-red-500/20"
+        <feature-card title="Molestie e discriminazioni"
           description="Zero tolleranza per qualsiasi forma di molestia, discriminazione basata su genere, età, orientamento, etnia, religione o altre caratteristiche personali."
           role="listitem">
-          <s-icon icon="/assets/icons/no-symbol.svg" slot="icon" class="inline-block text-red-600 size-20"
+          <s-icon icon="/assets/icons/no-symbol.svg" slot="icon" class="inline-block text-red-600 size-16 lg:size-20"
             aria-hidden="true"></s-icon>
         </feature-card>
 
         <feature-card title="Comportamenti illegali"
           description="Non tolleriamo attività illegali, violazione di proprietà intellettuale, condivisione di contenuti pirata o qualsiasi comportamento contrario alla legge."
           role="listitem">
-          <s-icon icon="/assets/icons/no-symbol.svg" slot="icon" class="inline-block text-red-600 size-20"
+          <s-icon icon="/assets/icons/no-symbol.svg" slot="icon" class="inline-block text-red-600 size-16 lg:size-20"
             aria-hidden="true"></s-icon>
         </feature-card>
 
         <feature-card title="Contenuti non pertinenti"
           description="Spam, recruiting aggressivo, pubblicità travestita o contenuti non legati allo sviluppo software non sono benvenuti nella nostra community."
           role="listitem">
-          <s-icon icon="/assets/icons/no-symbol.svg" slot="icon" class="inline-block text-red-600 size-20"
+          <s-icon icon="/assets/icons/no-symbol.svg" slot="icon" class="inline-block text-red-600 size-16 lg:size-20"
             aria-hidden="true"></s-icon>
         </feature-card>
 
@@ -331,10 +329,9 @@
 
       <!-- Call to action positiva -->
       <div class="max-w-3xl mx-auto">
-        <div
-          class="text-center p-6 bg-surface-100/10 dark:bg-surface-900/50 border border-surface-100/30 dark:border-surface-800 rounded-xl">
-          <p class="text-muted mb-3">
-            <strong class="text-primary">Ricorda:</strong> Siamo tutti qui per imparare e crescere insieme.
+        <div class="md:text-center p-6 bg-surface-100/10 dark:bg-surface-900/50 border border-surface-100/30 dark:border-surface-800 rounded-xl">
+          <p class="text-primary mb-3">
+            Ricordati che siamo tutti qui per imparare e crescere insieme.
           </p>
           <p class="text-sm text-muted">
             Tratta gli altri come vorresti essere trattato e contribuisci a creare un ambiente
@@ -349,9 +346,9 @@
     -->
 
     <section class="container snap-start" aria-labelledby="firme-title">
-      <header class="text-center mb-12 max-w-4xl mx-auto">
-        <h2 id="firme-title" class="text-6xl font-medium mb-4">Firmatari</h2>
-        <p class="text-lg text-muted">
+      <header>
+        <h2 id="firme-title">Firmatari</h2>
+        <p>
           I fondatori che hanno dato vita a questa community
         </p>
       </header>
@@ -450,9 +447,8 @@
 
       <!-- Messaggio di chiamata -->
       <div class="max-w-3xl mx-auto mt-12">
-        <div
-          class="text-center p-6 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 rounded-xl">
-          <p class="text-lg font-medium text-primary mb-2">
+        <div class="md:text-center p-6 bg-surface-100/10 dark:bg-surface-900/50 border border-surface-100/30 dark:border-surface-800 rounded-xl">
+          <p class="text-primary mb-3">
             Vuoi unirti alla community?
           </p>
           <p class="text-sm text-muted">
