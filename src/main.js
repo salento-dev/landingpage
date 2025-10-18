@@ -1,7 +1,7 @@
 import './style.css'
 import Typed from 'typed.js';
 
-class OctoLogo extends HTMLElement {
+class PIcon extends HTMLElement {
   constructor() {
     super();
   }
@@ -12,7 +12,27 @@ class OctoLogo extends HTMLElement {
     this.innerHTML = `<div class="h-16 w-16 bg-primary-gradient" style="--svg: url('${iconUrl}'); -webkit-mask: var(--svg); mask: var(--svg);"></div>`;
   }
 }
-customElements.define('octo-logo', OctoLogo);
+customElements.define('primary-icon', PIcon);
+
+class SIcon extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  async connectedCallback() {
+    const iconUrl = this.getAttribute('icon') || '/assets/icons/octo.svg';
+    
+    try {
+      const response = await fetch(iconUrl);
+      const svgText = await response.text();
+      this.innerHTML = svgText;
+    } catch (error) {
+      console.warn(`Failed to load icon: ${iconUrl}`, error);
+      this.innerHTML = '<span style="width: 1em; height: 1em; background: currentColor;"></span>';
+    }
+  }
+}
+customElements.define('s-icon', SIcon);
 
 class FeatureCard extends HTMLElement {
   
@@ -45,6 +65,54 @@ class FeatureCard extends HTMLElement {
   }
 }
 customElements.define('feature-card', FeatureCard);
+
+class ColorCard extends HTMLElement {
+  
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    // Ottieni i dati dagli attributi
+    const icon = this.getAttribute('icon') || this.querySelector('[slot="icon"]')?.outerHTML || '';
+    const title = this.getAttribute('title') || this.querySelector('[slot="title"]')?.textContent || '';
+    const description = this.getAttribute('description') || this.querySelector('[slot="description"]')?.textContent || '';
+
+    const color = this.getAttribute('color') || 'blue';
+
+    const colors = {
+      blue:     {gradient: 'from-blue-500/10 to-blue-600/5 border-blue-500/20 hover:from-blue-500/15 hover:to-blue-600/10', icon: 'text-blue-400', iconBg: 'bg-blue-500/20', title: 'text-blue-500'},
+      purple:   {gradient: 'from-purple-500/10 to-purple-600/5 border-purple-500/20 hover:from-purple-500/15 hover:to-purple-600/10', icon: 'text-purple-400', iconBg: 'bg-purple-500/20', title: 'text-purple-500'},
+      emerald:  {gradient: 'from-emerald-500/10 to-emerald-600/5 border-emerald-500/20 hover:from-emerald-500/15 hover:to-emerald-600/10', icon: 'text-emerald-400', iconBg: 'bg-emerald-500/20', title: 'text-emerald-500'},
+      orange:   {gradient: 'from-orange-500/10 to-orange-600/5 border-orange-500/20 hover:from-orange-500/15 hover:to-orange-600/10', icon: 'text-orange-400', iconBg: 'bg-orange-500/20', title: 'text-orange-500'},
+      cyan:     {gradient: 'from-cyan-500/10 to-cyan-600/5 border-cyan-500/20 hover:from-cyan-500/15 hover:to-cyan-600/10', icon: 'text-cyan-400', iconBg: 'bg-cyan-500/20', title: 'text-cyan-500'},
+      red:      {gradient: 'from-red-500/10 to-red-600/5 border-red-500/20 hover:from-red-500/15 hover:to-red-600/10', icon: 'text-red-400', iconBg: 'bg-red-500/20', title: 'text-red-500'},
+      yellow:   {gradient: 'from-yellow-500/10 to-yellow-600/5 border-yellow-500/20 hover:from-yellow-500/15 hover:to-yellow-600/10', icon: 'text-yellow-400', iconBg: 'bg-yellow-500/20', title: 'text-yellow-500'},
+      indigo:   {gradient: 'from-indigo-500/10 to-indigo-600/5 border-indigo-500/20 hover:from-indigo-500/15 hover:to-indigo-600/10', icon: 'text-indigo-400', iconBg: 'bg-indigo-500/20', title: 'text-indigo-500'},
+      pink:     {gradient: 'from-pink-500/10 to-pink-600/5 border-pink-500/20 hover:from-pink-500/15 hover:to-pink-600/10', icon: 'text-pink-400', iconBg: 'bg-pink-500/20', title: 'text-pink-500'},
+    }
+
+    this.className = `group relative p-6 bg-gradient-to-br ${colors[color].gradient} border rounded-xl transition-all duration-300`;
+
+    // Renderizza il componente senza shadow DOM
+    this.innerHTML = `
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-8 h-8 rounded-lg ${colors[color].iconBg} flex items-center justify-center">
+          <span class="${colors[color].icon} text-sm font-bold">
+            ${icon}
+          </span>
+        </div>
+        <h4 class="font-semibold ${colors[color].title}">
+          ${title}
+        </h4>
+      </div>
+      <p class="text-sm text-muted">
+        ${description}
+      </p>
+    `;
+  }
+}
+customElements.define('color-card', ColorCard);
 
 class RandomEditor extends HTMLElement {
   connectedCallback() {
