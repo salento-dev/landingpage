@@ -68,6 +68,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,400..700;1,400..700&display=swap"
     rel="stylesheet">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400..700;1,400..700&display=swap"
+    rel="stylesheet">
+
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
@@ -112,7 +117,7 @@
 
     <section class="container snap-start" aria-labelledby="manifesto-title">
       <header class="mb-8 md:mb-16 lg:mb-24 text-center">
-        <h1 id="manifesto-title" class="title text-primary">Salento.dev</h1>
+        <h1 id="manifesto-title" class="title text-primary">Salento Dev</h1>
         <p class="subtitle" style="line-height: 1.3;">
           Siamo un gruppo di sviluppatori software che vivono o hanno radici nella penisola Salentina,
           con la volontà di creare un ambiente fertile per lo scambio di idee e competenze,
@@ -120,7 +125,8 @@
         </p>
       </header>
 
-      <div class="card card-large max-w-full w-5xl bg-primary-gradient p-0 md:px-16 md:py-12 lg:px-24 lg:py-20 xl:px-32 xl:py-28"
+      <div
+        class="card card-large max-w-full w-5xl bg-primary-gradient p-0 md:px-16 md:py-12 lg:px-24 lg:py-20 xl:px-32 xl:py-28"
         role="region" aria-label="Editor di codice interattivo">
         <div class="inner-card w-full">
           <random-editor></random-editor>
@@ -357,91 +363,16 @@
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
 
         <!-- Alessandro Marra -->
-        <div class="group relative card">
-          <div class="flex flex-col items-center text-center">
-            <div
-              class="w-16 h-16 rounded-full overflow-hidden mb-4 group-hover:scale-105 transition-transform duration-300 ring-2 ring-primary/20 group-hover:ring-primary/40">
-              <img src="https://github.com/alemarra89.png?size=128" alt="Alessandro Marra"
-                class="w-full h-full object-cover" loading="lazy"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-              <div class="w-full h-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center"
-                style="display: none;">
-                <span class="text-white font-bold text-xl">AM</span>
-              </div>
-            </div>
-            <h3 class="font-semibold mb-1">Alessandro Marra</h3>
-            <p class="text-xs text-muted/80">Co-fondatore</p>
-            <a href="https://github.com/alemarra89" target="_blank" rel="noopener noreferrer"
-              class="text-xs text-primary/80 hover:text-primary transition-colors">
-              @alemarra89
-            </a>
-          </div>
-        </div>
+        <user-card user-name="Alessandro Marra" user-role="Co-fondatore" user-github="alemarra89"></user-card>
 
         <!-- Fabio D'Urso -->
-        <div class="group relative card">
-          <div class="flex flex-col items-center text-center">
-            <div
-              class="w-16 h-16 rounded-full overflow-hidden mb-4 group-hover:scale-105 transition-transform duration-300 ring-2 ring-primary/20 group-hover:ring-primary/40">
-              <img src="https://github.com/dursofabio.png?size=128" alt="Fabio D'Urso"
-                class="w-full h-full object-cover" loading="lazy"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-              <div class="w-full h-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center"
-                style="display: none;">
-                <span class="text-white font-bold text-xl">FD</span>
-              </div>
-            </div>
-            <h3 class="font-semibold mb-1">Fabio D'Urso</h3>
-            <p class="text-xs text-muted/80">Co-fondatore</p>
-            <a href="https://github.com/dursofabio" target="_blank" rel="noopener noreferrer"
-              class="text-xs text-primary/80 hover:text-primary transition-colors">
-              @dursofabio
-            </a>
-          </div>
-        </div>
+        <user-card user-name="Fabio D'Urso" user-role="Co-fondatore" user-github="dursofabio"></user-card>
 
         <!-- Giuseppe Ciullo -->
-        <div class="group relative card">
-          <div class="flex flex-col items-center text-center">
-            <div
-              class="w-16 h-16 rounded-full overflow-hidden mb-4 group-hover:scale-105 transition-transform duration-300 ring-2 ring-primary/20 group-hover:ring-primary/40">
-              <img src="https://github.com/JBassx.png?size=128" alt="Giuseppe Ciullo" class="w-full h-full object-cover"
-                loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-              <div class="w-full h-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center"
-                style="display: none;">
-                <span class="text-white font-bold text-xl">GC</span>
-              </div>
-            </div>
-            <h3 class="font-semibold mb-1">Giuseppe Ciullo</h3>
-            <p class="text-xs text-muted/80">Co-fondatore</p>
-            <a href="https://github.com/JBassx" target="_blank" rel="noopener noreferrer"
-              class="text-xs text-primary/80 hover:text-primary transition-colors">
-              @JBassx
-            </a>
-          </div>
-        </div>
+        <user-card user-name="Giuseppe Ciullo" user-role="Co-fondatore" user-github="JBassx"></user-card>
 
         <!-- Paolo Rizzello -->
-        <div class="group relative card">
-          <div class="flex flex-col items-center text-center">
-            <div
-              class="w-16 h-16 rounded-full overflow-hidden mb-4 group-hover:scale-105 transition-transform duration-300 ring-2 ring-primary/20 group-hover:ring-primary/40">
-              <img src="https://github.com/Rizzello.png?size=128" alt="Paolo Rizzello"
-                class="w-full h-full object-cover" loading="lazy"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-              <div class="w-full h-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center"
-                style="display: none;">
-                <span class="text-white font-bold text-xl">PR</span>
-              </div>
-            </div>
-            <h3 class="font-semibold mb-1">Paolo Rizzello</h3>
-            <p class="text-xs text-muted/80">Co-fondatore</p>
-            <a href="https://github.com/Rizzello" target="_blank" rel="noopener noreferrer"
-              class="text-xs text-primary/80 hover:text-primary transition-colors">
-              @Rizzello
-            </a>
-          </div>
-        </div>
+        <user-card user-name="Paolo Rizzello" user-role="Co-fondatore" user-github="Rizzello"></user-card>
 
       </div>
 

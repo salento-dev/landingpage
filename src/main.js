@@ -21,7 +21,7 @@ class SIcon extends HTMLElement {
 
   async connectedCallback() {
     const iconUrl = this.getAttribute('icon') || '/assets/icons/octo.svg';
-    
+
     try {
       const response = await fetch(iconUrl);
       const svgText = await response.text();
@@ -35,7 +35,7 @@ class SIcon extends HTMLElement {
 customElements.define('s-icon', SIcon);
 
 class FeatureCard extends HTMLElement {
-  
+
   constructor() {
     super();
   }
@@ -67,7 +67,7 @@ class FeatureCard extends HTMLElement {
 customElements.define('feature-card', FeatureCard);
 
 class ColorCard extends HTMLElement {
-  
+
   constructor() {
     super();
   }
@@ -81,15 +81,15 @@ class ColorCard extends HTMLElement {
     const color = this.getAttribute('color') || 'blue';
 
     const colors = {
-      blue:     {gradient: 'from-blue-500/10 to-blue-600/5 border-blue-500/20 hover:from-blue-500/15 hover:to-blue-600/10', icon: 'text-blue-400', iconBg: 'bg-blue-500/20', title: 'text-blue-500'},
-      purple:   {gradient: 'from-purple-500/10 to-purple-600/5 border-purple-500/20 hover:from-purple-500/15 hover:to-purple-600/10', icon: 'text-purple-400', iconBg: 'bg-purple-500/20', title: 'text-purple-500'},
-      emerald:  {gradient: 'from-emerald-500/10 to-emerald-600/5 border-emerald-500/20 hover:from-emerald-500/15 hover:to-emerald-600/10', icon: 'text-emerald-400', iconBg: 'bg-emerald-500/20', title: 'text-emerald-500'},
-      orange:   {gradient: 'from-orange-500/10 to-orange-600/5 border-orange-500/20 hover:from-orange-500/15 hover:to-orange-600/10', icon: 'text-orange-400', iconBg: 'bg-orange-500/20', title: 'text-orange-500'},
-      cyan:     {gradient: 'from-cyan-500/10 to-cyan-600/5 border-cyan-500/20 hover:from-cyan-500/15 hover:to-cyan-600/10', icon: 'text-cyan-400', iconBg: 'bg-cyan-500/20', title: 'text-cyan-500'},
-      red:      {gradient: 'from-red-500/10 to-red-600/5 border-red-500/20 hover:from-red-500/15 hover:to-red-600/10', icon: 'text-red-400', iconBg: 'bg-red-500/20', title: 'text-red-500'},
-      yellow:   {gradient: 'from-yellow-500/10 to-yellow-600/5 border-yellow-500/20 hover:from-yellow-500/15 hover:to-yellow-600/10', icon: 'text-yellow-400', iconBg: 'bg-yellow-500/20', title: 'text-yellow-500'},
-      indigo:   {gradient: 'from-indigo-500/10 to-indigo-600/5 border-indigo-500/20 hover:from-indigo-500/15 hover:to-indigo-600/10', icon: 'text-indigo-400', iconBg: 'bg-indigo-500/20', title: 'text-indigo-500'},
-      pink:     {gradient: 'from-pink-500/10 to-pink-600/5 border-pink-500/20 hover:from-pink-500/15 hover:to-pink-600/10', icon: 'text-pink-400', iconBg: 'bg-pink-500/20', title: 'text-pink-500'},
+      blue: { gradient: 'from-blue-500/10 to-blue-600/5 border-blue-500/20 hover:from-blue-500/15 hover:to-blue-600/10', icon: 'text-blue-400', iconBg: 'bg-blue-500/20', title: 'text-blue-500' },
+      purple: { gradient: 'from-purple-500/10 to-purple-600/5 border-purple-500/20 hover:from-purple-500/15 hover:to-purple-600/10', icon: 'text-purple-400', iconBg: 'bg-purple-500/20', title: 'text-purple-500' },
+      emerald: { gradient: 'from-emerald-500/10 to-emerald-600/5 border-emerald-500/20 hover:from-emerald-500/15 hover:to-emerald-600/10', icon: 'text-emerald-400', iconBg: 'bg-emerald-500/20', title: 'text-emerald-500' },
+      orange: { gradient: 'from-orange-500/10 to-orange-600/5 border-orange-500/20 hover:from-orange-500/15 hover:to-orange-600/10', icon: 'text-orange-400', iconBg: 'bg-orange-500/20', title: 'text-orange-500' },
+      cyan: { gradient: 'from-cyan-500/10 to-cyan-600/5 border-cyan-500/20 hover:from-cyan-500/15 hover:to-cyan-600/10', icon: 'text-cyan-400', iconBg: 'bg-cyan-500/20', title: 'text-cyan-500' },
+      red: { gradient: 'from-red-500/10 to-red-600/5 border-red-500/20 hover:from-red-500/15 hover:to-red-600/10', icon: 'text-red-400', iconBg: 'bg-red-500/20', title: 'text-red-500' },
+      yellow: { gradient: 'from-yellow-500/10 to-yellow-600/5 border-yellow-500/20 hover:from-yellow-500/15 hover:to-yellow-600/10', icon: 'text-yellow-400', iconBg: 'bg-yellow-500/20', title: 'text-yellow-500' },
+      indigo: { gradient: 'from-indigo-500/10 to-indigo-600/5 border-indigo-500/20 hover:from-indigo-500/15 hover:to-indigo-600/10', icon: 'text-indigo-400', iconBg: 'bg-indigo-500/20', title: 'text-indigo-500' },
+      pink: { gradient: 'from-pink-500/10 to-pink-600/5 border-pink-500/20 hover:from-pink-500/15 hover:to-pink-600/10', icon: 'text-pink-400', iconBg: 'bg-pink-500/20', title: 'text-pink-500' },
     }
 
     this.className = `group relative p-6 bg-gradient-to-br ${colors[color].gradient} border rounded-xl transition-all duration-300`;
@@ -102,9 +102,9 @@ class ColorCard extends HTMLElement {
             ${icon}
           </span>
         </div>
-        <h4 class="font-semibold ${colors[color].title}">
+        <h5 class="font-semibold ${colors[color].title}">
           ${title}
-        </h4>
+        </h5>
       </div>
       <p class="text-sm text-muted">
         ${description}
@@ -113,6 +113,37 @@ class ColorCard extends HTMLElement {
   }
 }
 customElements.define('color-card', ColorCard);
+
+class UserCard extends HTMLElement {
+  connectedCallback() {
+    const user_name = this.getAttribute('user-name') || '';
+    const user_github = this.getAttribute('user-github') || '';
+    const user_role = this.getAttribute('user-role') || '';
+
+    this.innerHTML = `
+      <div class="group relative card">
+        <div class="flex flex-col items-center text-center">
+          <div
+            class="w-16 h-16 rounded-full overflow-hidden mb-4 group-hover:scale-105 transition-transform duration-300 ring-2 ring-primary/20 group-hover:ring-primary/40">
+            <img src="https://github.com/${user_github}.png?size=128" alt="${user_name}"
+              class="w-full h-full object-cover" loading="lazy"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="w-full h-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center"
+              style="display: none;">
+              <span class="text-white font-bold text-xl">AM</span>
+            </div>
+          </div>
+          <h6 class="font-semibold mb-1">${user_name}</h6>
+          <p class="text-xs text-muted/80">${user_role}</p>
+          <a href="https://github.com/${user_github}" target="_blank" rel="noopener noreferrer" class="text-xs text-primary hover:text-primary transition-colors">
+            @${user_github}
+          </a>
+        </div>
+      </div>
+    `;
+  }
+}
+customElements.define('user-card', UserCard);
 
 class RandomEditor extends HTMLElement {
   connectedCallback() {
@@ -171,7 +202,7 @@ const typed = new Typed('#typed-code', {
   backSpeed: prefersReducedMotion ? 0 : 25,
   loop: !prefersReducedMotion,
   showCursor: !prefersReducedMotion,
-  onComplete: function(self) {
+  onComplete: function (self) {
     if (prefersReducedMotion) {
       // Se l'utente preferisce ridurre le animazioni, mostra solo l'ultimo messaggio
       self.el.innerHTML = `// Unisciti a noi e scrivi il futuro!`;

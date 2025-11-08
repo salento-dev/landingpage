@@ -2,8 +2,9 @@
 
 @theme {
 
-  --font-sans: 'Mona Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --font-sans: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
+  /** 400, 500, 700 */
+  --font-mono: DM Mono, Courier New, monospace;
 
   --color-primary-50: var(--color-emerald-50);
   --color-primary-100: var(--color-emerald-100);
@@ -46,6 +47,28 @@
   --color-surface-contrast: var(--color-surface-50);
 
   --color-muted: var(--color-surface-500);
+
+  --fluid-screen: 100vw;
+  --fluid-bp: calc((var(--fluid-screen) - 20rem) / 2240);
+  --step--2: calc(0.75625rem + 0.11 * var(--fluid-bp));
+  --step--1: calc(0.869375rem + 1.72 * var(--fluid-bp));
+  --step-0: calc(1rem + 4 * var(--fluid-bp));
+  --step-1: calc(1.15rem + 7.2 * var(--fluid-bp));
+  --step-2: calc(1.3225rem + 11.61 * var(--fluid-bp));
+  --step-3: calc(1.520625rem + 17.61 * var(--fluid-bp));
+  --step-4: calc(1.74875rem + 25.71 * var(--fluid-bp));
+  --step-5: calc(2.01125rem + 36.54 * var(--fluid-bp));
+  --step-6: calc(2.313125rem + 50.95 * var(--fluid-bp));
+  --step-7: calc(2.66rem + 70.03 * var(--fluid-bp));
+  --step-8: calc(3.05875rem + 95.18 * var(--fluid-bp));
+  --step-9: calc(3.518125rem + 128.18 * var(--fluid-bp));
+  --step-10: calc(4.045625rem + 171.39 * var(--fluid-bp));
+}
+
+@media screen and (min-width: 2560px) {
+  :root {
+    --fluid-screen: 2560px;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -55,6 +78,17 @@
 }
 
 @layer base {
+
+  *,
+  ::after,
+  ::before {
+    box-sizing: border-box
+  }
+
+  * {
+    margin: 0;
+    padding: 0
+  }
 
   html {
     overflow: hidden;
@@ -68,14 +102,24 @@
   }
 
   body {
-    @apply w-screen m-0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @apply font-sans w-screen;
     /* Fix per iOS Safari viewport bug */
     min-height: 100dvh;
     min-height: -webkit-fill-available;
     /* Assicura che il contenuto non si estenda oltre */
     height: 100dvh;
     height: -webkit-fill-available;
+
+    font-size: var(--body-font-size, var(--step-0));
+    font-weight: var(--body-font-weight, 400);
+    line-height: var(--body-line-height, 1.5);
+
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
   }
+
 
   footer {
     @apply w-full py-6 mt-12 bg-surface-100/10 dark:bg-surface-900 border-t border-solid border-surface-100/50 dark:border-surface-800;
@@ -85,12 +129,57 @@
     @apply container px-4 md:px-8 mx-auto;
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    overflow-wrap: break-word;
+    max-width: var(--measure, 100%)
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-sans font-bold;
+  }
+
+  h1 {
+    font-size: var(--step-6);
+  }
+
+  h2 {
+    font-size: var(--step-4);
+  }
+
+  h3 {
+    font-size: var(--step-3);
+  }
+
+  h4 {
+    font-size: var(--step-2);
+  }
+
+  h5 {
+    font-size: var(--step-1);
+  }
+
+  h6 {
+    font-size: var(--step-0);
+  }
+
 }
 
 @layer components {
 
   section {
     @apply flex flex-col items-center justify-center lg:min-h-screen w-full py-16 lg:py-24 xl:py-32;
+
     &:first-child {
       @apply min-h-screen;
     }
@@ -100,20 +189,21 @@
     @apply md:text-center mb-8 md:mb-12 lg:mb-16 max-w-4xl mx-auto;
 
     h2 {
-      @apply text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium mb-4;
+      @apply mb-4;
     }
 
     p {
-      @apply text-lg text-muted;
+      @apply text-muted;
     }
 
     h1.title {
-      /* font-size: clamp(4rem, 10vw, 16rem); */
-      @apply mb-4 font-bold text-6xl md:text-7xl lg:text-8xl xl:text-9xl leading-none;
+      @apply mb-4;
+      letter-spacing: -.015em;
+      line-height: 0.9;
     }
 
     p.subtitle {
-      @apply max-w-6xl mx-auto p-0 text-lg md:text-xl lg:text-xl xl:text-2xl;
+      @apply max-w-6xl mx-auto p-0;
     }
   }
 
