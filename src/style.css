@@ -6,17 +6,17 @@
   /** 400, 500, 700 */
   --font-mono: DM Mono, Courier New, monospace;
 
-  --color-primary-50: var(--color-emerald-50);
-  --color-primary-100: var(--color-emerald-100);
-  --color-primary-200: var(--color-emerald-200);
-  --color-primary-300: var(--color-emerald-300);
-  --color-primary-400: var(--color-emerald-400);
-  --color-primary-500: var(--color-emerald-500);
-  --color-primary-600: var(--color-emerald-600);
-  --color-primary-700: var(--color-emerald-700);
-  --color-primary-800: var(--color-emerald-800);
-  --color-primary-900: var(--color-emerald-900);
-  --color-primary-950: var(--color-emerald-950);
+  --color-primary-50: var(--color-cyan-50);
+  --color-primary-100: var(--color-cyan-100);
+  --color-primary-200: var(--color-cyan-200);
+  --color-primary-300: var(--color-cyan-300);
+  --color-primary-400: var(--color-cyan-400);
+  --color-primary-500: var(--color-cyan-500);
+  --color-primary-600: var(--color-cyan-600);
+  --color-primary-700: var(--color-cyan-700);
+  --color-primary-800: var(--color-cyan-800);
+  --color-primary-900: var(--color-cyan-900);
+  --color-primary-950: var(--color-cyan-950);
   --color-primary: var(--color-primary-400);
 
   --color-secondary-50: var(--color-teal-50);
@@ -77,6 +77,9 @@
   }
 }
 
+
+
+
 @layer base {
 
   *,
@@ -91,26 +94,17 @@
   }
 
   html {
-    overflow: hidden;
-    @apply w-screen p-0 m-0 bg-surface-50 dark:bg-surface-950 text-surface-950 dark:text-surface-50;
-    /* Fix per iOS Safari - usa dynamic viewport height */
-    height: 100dvh;
-    min-height: 100dvh;
-    /* Fallback per browser più vecchi */
-    height: -webkit-fill-available;
-    min-height: -webkit-fill-available;
+    @apply w-full h-dvh;
+    @apply overflow-y-auto overflow-x-hidden scroll-smooth xl:snap-y xl:snap-proximity;
+    @apply bg-surface-50 dark:bg-surface-950 ;
   }
 
   body {
+    @apply font-sans text-surface-950 dark:text-surface-50;
+    @apply w-full h-dvh;
+
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    @apply font-sans w-screen;
-    /* Fix per iOS Safari viewport bug */
-    min-height: 100dvh;
-    min-height: -webkit-fill-available;
-    /* Assicura che il contenuto non si estenda oltre */
-    height: 100dvh;
-    height: -webkit-fill-available;
 
     font-size: var(--body-font-size, var(--step-0));
     font-weight: var(--body-font-weight, 400);
@@ -120,9 +114,8 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-
   footer {
-    @apply w-full py-6 mt-12 bg-surface-100/10 dark:bg-surface-900 border-t border-solid border-surface-100/50 dark:border-surface-800;
+    @apply w-full py-6 mt-12 bg-surface-100/10 dark:bg-surface-900 border-t border-solid border-surface-100/50 dark:border-surface-800 backdrop-blur-sm;
   }
 
   .container {
@@ -173,9 +166,21 @@
     font-size: var(--step-0);
   }
 
+  
+
 }
 
 @layer components {
+
+  letter-glitch {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0.2;
+  }
 
   section {
     @apply flex flex-col items-center justify-center lg:min-h-screen w-full py-16 lg:py-24 xl:py-32;
@@ -187,6 +192,11 @@
 
   section>header {
     @apply md:text-center mb-8 md:mb-12 lg:mb-16 max-w-4xl mx-auto;
+
+    decrypted-text {
+      font-size: var(--step-4);
+      @apply mb-4 font-bold text-nowrap;
+    }
 
     h2 {
       @apply mb-4;
@@ -207,8 +217,20 @@
     }
   }
 
+  .card-help {
+    @apply md:text-center p-6 bg-surface-100/10 dark:bg-surface-900/50 border border-surface-100/30 dark:border-surface-800 backdrop-blur-sm rounded-xl;
+
+    h6 {
+      @apply text-primary mb-3;
+    }
+
+    p {
+      @apply text-sm text-muted;
+    }
+  }
+
   .card {
-    @apply bg-surface-100/40 dark:bg-surface-800 py-8 px-6 rounded-xl;
+    @apply bg-surface-100/40 dark:bg-surface-800/80 backdrop-blur-sm py-8 px-6 rounded-xl;
 
     .card-title {
       @apply mt-5 text-2xl font-medium tracking-tight;
@@ -304,28 +326,17 @@
 
   .bg-primary-gradient {
     @apply bg-linear-140 from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%;
-    background-size: 200% 200%;
-    animation: gradient 5s ease infinite;
   }
 
-  .text-primary {
-    @apply bg-linear-140 from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% bg-clip-text text-transparent;
-    background-size: 200% 200%;
-    animation: gradient 5s ease infinite;
-  }
-
-  @keyframes gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-
-    50% {
-      background-position: 100% 50%;
-    }
-
-    100% {
-      background-position: 0% 50%;
-    }
+  /* Sfondo con logo e effetti di scroll */
+  .background-logo {
+    @apply fixed opacity-[.05] dark:opacity-[.15];
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    z-index: -1;
+    pointer-events: none;
   }
 }
 

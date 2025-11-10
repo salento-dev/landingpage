@@ -1,5 +1,6 @@
 import './style.css'
-import Typed from 'typed.js';
+import './js/letter-glitch';
+import './js/decripted-text';
 
 class PIcon extends HTMLElement {
   constructor() {
@@ -92,7 +93,7 @@ class ColorCard extends HTMLElement {
       pink: { gradient: 'from-pink-500/10 to-pink-600/5 border-pink-500/20 hover:from-pink-500/15 hover:to-pink-600/10', icon: 'text-pink-400', iconBg: 'bg-pink-500/20', title: 'text-pink-500' },
     }
 
-    this.className = `group relative p-6 bg-gradient-to-br ${colors[color].gradient} border rounded-xl transition-all duration-300`;
+    this.className = `group relative p-6 bg-gradient-to-br ${colors[color].gradient} backdrop-blur-sm border rounded-xl transition-all duration-300`;
 
     // Renderizza il componente senza shadow DOM
     this.innerHTML = `
@@ -192,20 +193,61 @@ customElements.define('random-editor', RandomEditor);
 // Verifica prefers-reduced-motion prima di inizializzare l'animazione
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-const typed = new Typed('#typed-code', {
-  strings: [
-    `console.log('Benvenuto in Salento.dev!');`,
-    'const salento = "passione + condivisione";\n\tfunction condividi(idea) {\n \t\treturn idea + " ❤️";\n \t}\n condividi("conoscenza");',
-    `// Unisciti a noi e scrivi il futuro!`,
-  ],
-  typeSpeed: prefersReducedMotion ? 0 : 50,
-  backSpeed: prefersReducedMotion ? 0 : 25,
-  loop: !prefersReducedMotion,
-  showCursor: !prefersReducedMotion,
-  onComplete: function (self) {
-    if (prefersReducedMotion) {
-      // Se l'utente preferisce ridurre le animazioni, mostra solo l'ultimo messaggio
-      self.el.innerHTML = `// Unisciti a noi e scrivi il futuro!`;
+
+// Letter Glitch Scroll Fade Effect
+function setupLetterGlitchScrollFade() {
+  const letterGlitchElement = document.querySelector('letter-glitch');
+  if (!letterGlitchElement) return;
+
+  // Store the initial opacity from CSS once
+  const computedStyle = window.getComputedStyle(letterGlitchElement);
+  const initialOpacity = parseFloat(computedStyle.getPropertyValue('opacity')) || 1;
+
+  function updateScrollFade() {
+    // Get current scroll position
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const viewportHeight = window.innerHeight;
+    
+    if (scrollTop === 0) {
+      // At top of page, use CSS-defined opacity
+      letterGlitchElement.style.opacity = '';
+    } else if (scrollTop < viewportHeight) {
+      // Fade during first 100vh: from initial opacity to 50% of initial opacity
+      const fadeProgress = scrollTop / viewportHeight;
+      const reductionAmount = initialOpacity * 0.5;
+      const opacity = initialOpacity - (fadeProgress * reductionAmount);
+      letterGlitchElement.style.opacity = opacity.toString();
+    } else {
+      // After 100vh, maintain the 50% reduced opacity (always based on initial value)
+      const reducedOpacity = initialOpacity * 0.5;
+      letterGlitchElement.style.opacity = reducedOpacity.toString();
     }
   }
-});
+
+  // Debounce function for performance
+  function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+
+  // Setup scroll listener with debouncing
+  const debouncedUpdateScrollFade = debounce(updateScrollFade, 16); // ~60fps
+  window.addEventListener('scroll', debouncedUpdateScrollFade);
+
+  // Set initial opacity
+  updateScrollFade();
+}
+
+// Initialize scroll fade effect when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', setupLetterGlitchScrollFade);
+} else {
+  setupLetterGlitchScrollFade();
+}
