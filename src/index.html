@@ -56,12 +56,12 @@
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
   <!-- Favicon and Icons -->
-  <link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
-  <link rel="shortcut icon" href="/assets/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
-  <meta name="apple-mobile-web-app-title" content="Salento Dev" />
-  <link rel="manifest" href="/assets/site.webmanifest" />
+  <link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="Salento Dev">
+  <link rel="manifest" href="/assets/site.webmanifest">
 
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -129,7 +129,7 @@
     Hero 
     -->
 
-    <section class="container snap-start" aria-label="Salento dev">
+    <section class="container" aria-label="Salento dev">
       <svg class="text-primary w-xs sm:w-sm md:w-md lg:w-lg xl:w-xl 2xl:w-2xl max-w-full drop-shadow-md" viewBox="0 0 701 300" role="img" fill="none" aria-label="salento.dev logo" xmlns="http://www.w3.org/2000/svg">
         <path d="M164.623 276.647H134.731V300H185.03V276.647H168.647H164.623Z" fill="currentColor"/>
         <path d="M204.79 300H215.569V276.647H204.79V300Z" fill="currentColor"/>
@@ -165,9 +165,9 @@
     Principi 
     -->
 
-    <section class="container snap-start" aria-labelledby="principles-title">
+    <section class="container">
       <header>
-        <decrypted-text id="principles-title"
+        <decrypted-text
           text="I nostri principi" 
           sequential="true"
           reveal-direction="start"
@@ -212,9 +212,9 @@
     Attivia 
     -->
 
-    <section class="container snap-start" aria-labelledby="attivita-title">
+    <section class="container">
       <header>
-        <decrypted-text id="attivita-title"
+        <decrypted-text
           text="Attività" 
           sequential="true"
           reveal-direction="start"
@@ -282,9 +282,9 @@
     Ambiti di appartenenza 
     -->
 
-    <section class="container snap-start" aria-labelledby="ambiti-title">
+    <section class="container">
       <header>
-        <decrypted-text id="ambiti-title"
+        <decrypted-text
           text="Ambiti di appartenenza" 
           sequential="true"
           reveal-direction="start"
@@ -324,16 +324,15 @@
       </div>
 
       <!-- Nota di esclusione -->
-      <div class="max-w-3xl mx-auto">
-        <div class="card-help">
-          <h6>
-            Nota importante
-          </h6>
-          <p>
-            Sono esclusi da questa community i ruoli non tecnici anche se appartenenti alla
-            filiera dello sviluppo software (marketing, sales, HR/recruiting).
-          </p>
-        </div>
+      <div class="card-help">
+        <p class="card-help-title">
+          Nota importante
+        </p>
+        <p>
+          Questa community è dedicata ai professionisti con ruoli tecnici nello sviluppo software. 
+          Per mantenere il focus sui temi trattati, alcuni ruoli non tecnici (ad esempio marketing, sales, HR/recruiting) 
+          potrebbero non trovare qui uno spazio adatto alle proprie esigenze.
+        </p>
       </div>
     </section>
 
@@ -341,9 +340,9 @@
     Codice di condotta 
     -->
 
-    <section class="container snap-start" aria-labelledby="condotta-title">
+    <section class="container">
       <header>
-        <decrypted-text id="condotta-title"
+        <decrypted-text
           text="Codice di condotta" 
           sequential="true"
           reveal-direction="start"
@@ -355,7 +354,7 @@
         </p>
       </header>
 
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 xl:gap-8 mx-auto mb-16 md:text-center">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 xl:gap-8 mx-auto mb-16 md:text-center" role="list">
 
         <feature-card title="Molestie e discriminazioni"
           description="Zero tolleranza per qualsiasi forma di molestia, discriminazione basata su genere, età, orientamento, etnia, religione o altre caratteristiche personali."
@@ -380,17 +379,15 @@
 
       </div>
 
-      <!-- Call to action positiva -->
-      <div class="max-w-3xl mx-auto">
-        <div class="card-help">
-          <h6>
-            Ricordati che siamo tutti qui per imparare e crescere insieme.
-          </h6>
-          <p>
-            Tratta gli altri come vorresti essere trattato e contribuisci a creare un ambiente
-            dove tutti possano prosperare professionalmente.
-          </p>
-        </div>
+      <!-- Call to action positiva --> 
+      <div class="card-help">
+        <p class="card-help-title">
+          Ricordati che siamo tutti qui per imparare e crescere insieme.
+        </p>
+        <p>
+          Tratta gli altri come vorresti essere trattato e contribuisci a creare un ambiente
+          dove tutti possano prosperare professionalmente.
+        </p>
       </div>
     </section>
 
@@ -398,9 +395,9 @@
     Firmatari
     -->
 
-    <section class="container snap-start" aria-labelledby="firme-title">
+    <section class="container">
       <header>
-        <decrypted-text id="firme-title"
+        <decrypted-text
           text="Firmatari" 
           sequential="true"
           reveal-direction="start"
@@ -429,34 +426,36 @@
       </div>
 
       <!-- Messaggio di chiamata -->
-      <div class="max-w-3xl mx-auto mt-12">
-        <div class="card-help">
-          <h6>
-            Vuoi unirti alla community?
-          </h6>
-          <p>
-            Segui i nostri canali social per rimanere aggiornato sui prossimi eventi e iniziative.
-          </p>
-        </div>
+      <div class="card-help mt-12">
+        <p class="card-help-title">
+          Vuoi unirti alla community?
+        </p>
+        <p class="mb-6">
+          Segui i nostri canali social per rimanere aggiornato sui prossimi eventi e iniziative.
+        </p>
+        <a href="https://links.salento.dev" target="_blank" class="button">
+          <span>Scopri i nostri canali</span>
+          <!-- <s-icon icon="/assets/icons/arrow-right.svg" class="size-5" aria-hidden="true"></s-icon> -->
+        </a>
       </div>
     </section>
 
   </main>
 
-  <footer id="footer" class="snap-end">
+  <footer id="footer">
     <div class="container text-center lg:text-left flex flex-col lg:flex-row items-center justify-between gap-4">
-      <div class="text-sm text-neutral-400">
-        <div class="text-muted font-medium">salento.dev</div>
-        <div class="mt-2 text-xs text-muted/80">&copy; 2025 salento.dev — Tutti i diritti riservati.</div>
+      <div class="text-sm text-muted">
+        <div class="font-medium">salento.dev</div>
+        <div class="mt-2 text-xs">&copy; 2025 salento.dev — Tutti i diritti riservati.</div>
       </div>
 
       <div class="flex items-center gap-6">
         <div class="flex items-center gap-3" role="group" aria-label="Link social">
           <a href="https://chat.whatsapp.com/Hj9JyfVHUOE2g7dqoql1OB" target="_blank"
-            class="text-muted hover:text-muted/80 text-sm focus:text-muted focus:outline-2 focus:outline-primary"
+            class="text-muted hover:underline text-sm focus:text-muted focus:outline-2 focus:outline-primary"
             tabindex="0" aria-label="Segui su Twitter">WhatsApp</a>
           <a href="https://www.instagram.com/salento.dev/" target="_blank"
-            class="text-muted hover:text-muted/80 text-sm focus:text-muted focus:outline-2 focus:outline-primary"
+            class="text-muted hover:underline text-sm focus:text-muted focus:outline-2 focus:outline-primary"
             tabindex="0" aria-label="Unisciti su Discord">Instagram</a>
         </div>
       </div>

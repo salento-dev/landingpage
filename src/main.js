@@ -134,8 +134,8 @@ class UserCard extends HTMLElement {
               <span class="text-white font-bold text-xl">AM</span>
             </div>
           </div>
-          <h6 class="font-semibold mb-1">${user_name}</h6>
-          <p class="text-xs text-muted/80">${user_role}</p>
+          <strong class="font-semibold mb-1">${user_name}</strong>
+          <p class="text-xs text-muted">${user_role}</p>
           <a href="https://github.com/${user_github}" target="_blank" rel="noopener noreferrer" class="text-xs text-primary hover:text-primary transition-colors">
             @${user_github}
           </a>
@@ -189,65 +189,3 @@ class RandomEditor extends HTMLElement {
   }
 }
 customElements.define('random-editor', RandomEditor);
-
-// Verifica prefers-reduced-motion prima di inizializzare l'animazione
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-
-// Letter Glitch Scroll Fade Effect
-function setupLetterGlitchScrollFade() {
-  const letterGlitchElement = document.querySelector('letter-glitch');
-  if (!letterGlitchElement) return;
-
-  // Store the initial opacity from CSS once
-  const computedStyle = window.getComputedStyle(letterGlitchElement);
-  const initialOpacity = parseFloat(computedStyle.getPropertyValue('opacity')) || 1;
-
-  function updateScrollFade() {
-    // Get current scroll position
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const viewportHeight = window.innerHeight;
-    
-    if (scrollTop === 0) {
-      // At top of page, use CSS-defined opacity
-      letterGlitchElement.style.opacity = '';
-    } else if (scrollTop < viewportHeight) {
-      // Fade during first 100vh: from initial opacity to 50% of initial opacity
-      const fadeProgress = scrollTop / viewportHeight;
-      const reductionAmount = initialOpacity * 0.5;
-      const opacity = initialOpacity - (fadeProgress * reductionAmount);
-      letterGlitchElement.style.opacity = opacity.toString();
-    } else {
-      // After 100vh, maintain the 50% reduced opacity (always based on initial value)
-      const reducedOpacity = initialOpacity * 0.5;
-      letterGlitchElement.style.opacity = reducedOpacity.toString();
-    }
-  }
-
-  // Debounce function for performance
-  function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-      const later = () => {
-        clearTimeout(timeout);
-        func(...args);
-      };
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-    };
-  }
-
-  // Setup scroll listener with debouncing
-  const debouncedUpdateScrollFade = debounce(updateScrollFade, 16); // ~60fps
-  window.addEventListener('scroll', debouncedUpdateScrollFade);
-
-  // Set initial opacity
-  updateScrollFade();
-}
-
-// Initialize scroll fade effect when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', setupLetterGlitchScrollFade);
-} else {
-  setupLetterGlitchScrollFade();
-}
