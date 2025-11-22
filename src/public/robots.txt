@@ -1,0 +1,18 @@
+# robots.txt per salento.dev
+# https://salento.dev/robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://salento.dev/sitemap.xml
+
+# Disallow crawling of admin or private areas (se necessario)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow all search engines to crawl the site
+# No restrictions for salento.dev community site
+
+# Crawl-delay (opzionale, solo se necessario)
+# Crawl-delay: 1
