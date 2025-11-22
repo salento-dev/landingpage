@@ -1,0 +1,367 @@
+@import "tailwindcss";
+
+@theme {
+
+  --font-sans: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
+  /** 400, 500, 700 */
+  --font-mono: DM Mono, Courier New, monospace;
+
+  --color-primary-50: var(--color-cyan-50);
+  --color-primary-100: var(--color-cyan-100);
+  --color-primary-200: var(--color-cyan-200);
+  --color-primary-300: var(--color-cyan-300);
+  --color-primary-400: var(--color-cyan-400);
+  --color-primary-500: var(--color-cyan-500);
+  --color-primary-600: var(--color-cyan-600);
+  --color-primary-700: var(--color-cyan-700);
+  --color-primary-800: var(--color-cyan-800);
+  --color-primary-900: var(--color-cyan-900);
+  --color-primary-950: var(--color-cyan-950);
+  --color-primary: var(--color-primary-400);
+
+  --color-secondary-50: var(--color-teal-50);
+  --color-secondary-100: var(--color-teal-100);
+  --color-secondary-200: var(--color-teal-200);
+  --color-secondary-300: var(--color-teal-300);
+  --color-secondary-400: var(--color-teal-400);
+  --color-secondary-500: var(--color-teal-500);
+  --color-secondary-600: var(--color-teal-600);
+  --color-secondary-700: var(--color-teal-700);
+  --color-secondary-800: var(--color-teal-800);
+  --color-secondary-900: var(--color-teal-900);
+  --color-secondary-950: var(--color-teal-950);
+  --color-secondary: var(--color-secondary-400);
+
+  --color-surface-50: oklch(97.034% 0.01038 248.179);
+  --color-surface-100: oklch(85.691% 0.01422 248.154);
+  --color-surface-200: oklch(78.495% 0.01747 250.989);
+  --color-surface-300: oklch(66.248% 0.01821 251.011);
+  --color-surface-400: oklch(56.286% 0.01962 256.386);
+  --color-surface-500: oklch(42.467% 0.01752 254.775);
+  --color-surface-600: oklch(32.999% 0.01492 252.364);
+  --color-surface-700: oklch(26.664% 0.01499 256.834);
+  --color-surface-800: oklch(22.022% 0.01573 256.847);
+  --color-surface-900: oklch(17.629% 0.01404 258.383);
+  --color-surface-950: oklch(10.682% 0.00759 256.847);
+  --color-surface: var(--color-surface-950);
+  --color-surface-contrast: var(--color-surface-50);
+
+  --color-muted: var(--color-surface-500);
+
+  --fluid-screen: 100vw;
+  --fluid-bp: calc((var(--fluid-screen) - 20rem) / 2240);
+  --step--2: calc(0.75625rem + 0.11 * var(--fluid-bp));
+  --step--1: calc(0.869375rem + 1.72 * var(--fluid-bp));
+  --step-0: calc(1rem + 4 * var(--fluid-bp));
+  --step-1: calc(1.15rem + 7.2 * var(--fluid-bp));
+  --step-2: calc(1.3225rem + 11.61 * var(--fluid-bp));
+  --step-3: calc(1.520625rem + 17.61 * var(--fluid-bp));
+  --step-4: calc(1.74875rem + 25.71 * var(--fluid-bp));
+  --step-5: calc(2.01125rem + 36.54 * var(--fluid-bp));
+  --step-6: calc(2.313125rem + 50.95 * var(--fluid-bp));
+  --step-7: calc(2.66rem + 70.03 * var(--fluid-bp));
+  --step-8: calc(3.05875rem + 95.18 * var(--fluid-bp));
+  --step-9: calc(3.518125rem + 128.18 * var(--fluid-bp));
+  --step-10: calc(4.045625rem + 171.39 * var(--fluid-bp));
+}
+
+@media screen and (min-width: 2560px) {
+  :root {
+    --fluid-screen: 2560px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-muted: var(--color-surface-200);
+  }
+}
+
+
+
+
+@layer base {
+
+  *,
+  ::after,
+  ::before {
+    box-sizing: border-box
+  }
+
+  * {
+    margin: 0;
+    padding: 0
+  }
+
+  html {
+    @apply w-full h-dvh;
+    @apply overflow-y-auto overflow-x-hidden scroll-smooth;
+    @apply bg-surface-50 dark:bg-surface-950 ;
+  }
+
+  body {
+    @apply font-sans text-surface-950 dark:text-surface-50;
+    @apply w-full h-dvh;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    font-size: var(--body-font-size, var(--step-0));
+    font-weight: var(--body-font-weight, 400);
+    line-height: var(--body-line-height, 1.5);
+
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  footer {
+    @apply w-full py-6 mt-12 bg-surface-100/10 dark:bg-surface-900 border-t border-solid border-surface-100/50 dark:border-surface-800 backdrop-blur-sm;
+  }
+
+  .container {
+    @apply container px-4 md:px-8 mx-auto;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    overflow-wrap: break-word;
+    max-width: var(--measure, 100%)
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-sans font-bold;
+  }
+
+  h1 {
+    font-size: var(--step-6);
+  }
+
+  h2 {
+    font-size: var(--step-4);
+  }
+
+  h3 {
+    font-size: var(--step-3);
+  }
+
+  h4 {
+    font-size: var(--step-2);
+  }
+
+  h5 {
+    font-size: var(--step-1);
+  }
+
+  h6 {
+    font-size: var(--step-0);
+  }
+
+  
+
+}
+
+@layer components {
+
+  letter-glitch {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0.15;
+  }
+
+  section {
+    @apply flex flex-col items-center justify-center lg:min-h-screen w-full py-16 lg:py-24 xl:py-32;
+
+    &:first-child {
+      @apply min-h-screen;
+    }
+  }
+
+  section>header {
+    @apply md:text-center mb-8 md:mb-12 lg:mb-16 max-w-4xl mx-auto;
+
+    decrypted-text {
+      font-size: var(--step-4);
+      @apply mb-4 font-bold text-nowrap;
+    }
+
+    h2 {
+      @apply mb-4;
+    }
+
+    p {
+      @apply text-muted;
+    }
+
+    h1.title {
+      @apply mb-4;
+      letter-spacing: -.015em;
+      line-height: 0.9;
+    }
+
+    p.subtitle {
+      @apply max-w-6xl mx-auto p-0;
+    }
+  }
+
+  .button {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-primary-500 hover:bg-primary-600 text-surface-950 font-semibold rounded-lg transition-colors focus:outline-2 focus:outline-primary-400;
+  }
+
+  .card-help {
+    @apply max-w-5xl mx-auto md:text-center p-6 bg-surface-100/10 dark:bg-surface-900/50 border border-surface-100/30 dark:border-surface-800 backdrop-blur-sm rounded-xl;
+
+    p:not(.card-help-title) {
+      @apply text-sm text-muted;
+    }
+
+    p.card-help-title {
+      @apply text-primary mb-3;
+      font-size: var(--step-1);
+    }
+  }
+
+  .card {
+    @apply bg-surface-100/40 dark:bg-surface-800/80 backdrop-blur-sm py-8 px-6 rounded-xl;
+
+    .card-title {
+      @apply mt-5 text-2xl font-medium tracking-tight;
+    }
+
+    .card-description {
+      @apply text-muted mt-2 text-lg leading-relaxed;
+    }
+
+    &.card-large {
+      @apply rounded-4xl;
+
+      .inner-card {
+        @apply rounded-3xl;
+
+        &::before {
+          @apply rounded-4xl;
+        }
+      }
+    }
+  }
+
+  .inner-card {
+    @apply relative bg-white text-surface-950 border border-solid border-surface-500/20 rounded-lg;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -1rem;
+      left: -1rem;
+      width: calc(100% + 2rem);
+      height: calc(100% + 2rem);
+
+      @apply hidden md:block bg-surface-50/30 rounded-xl;
+    }
+  }
+
+  .editor {
+    @apply w-full max-w-4xl overflow-hidden;
+
+    .editor-header {
+      @apply flex items-center justify-between px-4 py-3 border-b border-solid border-surface-500/20;
+
+      .editor-controls {
+        @apply flex items-center;
+
+        .dot {
+          @apply inline-block w-4 h-4 rounded-full mr-3;
+
+          &.red {
+            @apply bg-red-500;
+          }
+
+          &.yellow {
+            @apply bg-yellow-500;
+          }
+
+          &.green {
+            @apply bg-green-500;
+          }
+        }
+      }
+
+      .filename {
+        @apply text-surface-500 font-medium;
+      }
+
+    }
+
+    .editor-content {
+      font-size: clamp(0.75rem, 2vw, 1.5rem);
+      line-height: 1.5;
+
+      @apply flex font-mono;
+
+      .editor-content-lines {
+        @apply text-surface-100 py-4 px-2 lg:pl-10 select-none;
+      }
+
+      .editor-content-text {
+        @apply flex-1 py-4 pr-2 md:px-3 text-primary-800 font-mono;
+      }
+    }
+  }
+
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-primary-600 focus:text-white focus:px-4 focus:py-2 focus:rounded;
+  }
+
+}
+
+@layer utilities {
+
+  .bg-primary-gradient {
+    @apply bg-linear-140 from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%;
+  }
+
+  /* Sfondo con logo e effetti di scroll */
+  .background-logo {
+    @apply fixed opacity-[.05] dark:opacity-[.15];
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    z-index: -1;
+    pointer-events: none;
+  }
+}
+
+/* Supporto per prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --color-surface-950: oklch(5% 0 0);
+    --color-primary: oklch(85% 0.2 150);
+  }
+}
